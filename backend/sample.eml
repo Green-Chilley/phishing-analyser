@@ -1,0 +1,216 @@
+Received: from SE2P216MB2825.KORP216.PROD.OUTLOOK.COM (2603:1096:101:290::11)
+ by SE1P216MB1861.KORP216.PROD.OUTLOOK.COM with HTTPS; Wed, 3 Jun 2026
+ 08:09:22 +0000
+Received: from SN6PR05CA0031.namprd05.prod.outlook.com (2603:10b6:805:de::44)
+ by SE2P216MB2825.KORP216.PROD.OUTLOOK.COM (2603:1096:101:290::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
+ 08:09:21 +0000
+Received: from SN1PEPF000397AF.namprd05.prod.outlook.com
+ (2603:10b6:805:de:cafe::1e) by SN6PR05CA0031.outlook.office365.com
+ (2603:10b6:805:de::44) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Wed, 3
+ Jun 2026 08:09:19 +0000
+Authentication-Results: spf=pass (sender IP is 198.244.57.133)
+ smtp.mailfrom=workablemail.com; dkim=pass (signature was verified)
+ header.d=workablemail.com;dmarc=pass action=none
+ header.from=candidates.workablemail.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of workablemail.com
+ designates 198.244.57.133 as permitted sender)
+ receiver=protection.outlook.com; client-ip=198.244.57.133;
+ helo=c133.cdc51d80.usw1.send.mailgun.net; pr=C
+Received: from c133.cdc51d80.usw1.send.mailgun.net (198.244.57.133) by
+ SN1PEPF000397AF.mail.protection.outlook.com (10.167.248.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Wed, 3 Jun 2026 08:09:19 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:531B1C4AD1558ED2AE4221517BA01881CED24BE06A5CF9187892726A4486C609;UpperCasedChecksum:C51D162AED25F321CB29DA8055E8CFDEC6EAAD56FF55E86CADE26A01F856F41A;SizeAsReceived:1281;Count:15
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=workablemail.com; q=dns/txt; s=mx; t=1780474158; x=1780481358;
+ h=Message-Id: Date: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Sender: Sender;
+ bh=HcZ/HNVprf0NX56u+muOsIceZbTbNYRsTuXAexFclFc=;
+ b=T1gnXkU6WIBgP+txmOWD7pYwkGoMw4y98JlXfkJ5HzDXTvLr9TwOfN+DAzK48t8dRbUu4vLOLysEZPdlCYrg/yrdF4e5q9ZVZB0VxUEX0v24o3ESfPd0JjyzmMyX9Ta6r7MCUfR5qgU5ZZr4rrkO5MO1/Iqv0OSvXE7Tx4s6Yl8=
+X-Mailgun-Sid: WyIwNjE1ZSIsImxlby5uZ3V5ZW5AaG90bWFpbC5jb20uYXUiLCIyYjgxIl0=
+Received: by 5895f959fbe5ebcb43d7353179a812cd486aa0d7f44dcf083eca8142399e3ca3 with HTTP
+ id 6a1fe12eaad705eece9e8463; Wed, 03 Jun 2026 08:09:18 GMT
+X-Mailgun-Sending-Ip: 198.244.57.133
+Sender: noreply=candidates.workablemail.com@workablemail.com
+Content-Type: multipart/alternative;
+ boundary="ba036548da56d7be41d5e83a6f97ee8321db9abb70e4f27d65fe22f30c0a"
+Subject: Junior Cyber Security Engineer - Compass Education
+From: Compass Education <noreply@candidates.workablemail.com>
+To: leo.nguyen@hotmail.com.au
+X-Mailgun-Tag: applied_candidate
+X-Mailgun-Track-Opens: true
+X-Mailgun-Track-Clicks: false
+Date: Wed, 03 Jun 2026 08:09:18 +0000
+Message-Id: <15cecc506f5b2a59c641b908187a28f3756fd5a8.15f4ldn@workablemail.com>
+X-IncomingHeaderCount: 15
+Return-Path: bounce+2691f9.2b81-leo.nguyen=hotmail.com.au@workablemail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 03 Jun 2026 08:09:19.6240
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 045eb2ea-d310-4acb-db51-08dec14769de
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397AF:EE_|SE2P216MB2825:EE_|SE1P216MB1861:EE_
+X-MS-Exchange-Organization-AuthSource: SN1PEPF000397AF.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 6/3/2026 8:02:05 AM
+X-MS-Office365-Filtering-Correlation-Id: 045eb2ea-d310-4acb-db51-08dec14769de
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 198.244.57.133
+X-SID-PRA: NOREPLY@CANDIDATES.WORKABLEMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:4;ARA:1444111002|58200799025|60050799009|10300799038|47200799027|29080799009|26130799012|10049299003|1370799030|1360799030|1380799030|1602099012|1122599022|440099028|3412199025|4302099013|30041999003;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 08:09:19.3518
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 045eb2ea-d310-4acb-db51-08dec14769de
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397AF.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE2P216MB2825
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.2742611
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0092.005
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000311)(920221119095)(920221120095)(90000117)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(2008001181)(4810010)(4910033)(9575002)(10195002)(9320005)(120001);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?amFacjkxZmtBaWtxMk5iR05ncEgzYzBsMFkvekNjSldwcmJDNHM5MUdUQnJJ?=
+ =?utf-8?B?akhCR1JacGZnamxzYTRNZldxeXhQK04xcGZidWVyRkpRUUloRzA2aTZiaE10?=
+ =?utf-8?B?WGw2K2hwa1QraDE5OFh1VitRSUgwYkcyMzl3OXpsMmVrUUJOc3RBckdSbzh0?=
+ =?utf-8?B?cjlaSkQ4MFZjbE85ckN6VEVoelRYWXpZM1RpMzBOVzJKNm9nMFE0SVdHVEpr?=
+ =?utf-8?B?clY4U1BvMlVEVTZ0Z29tVjM5Vk95MHphRUg5TEc0L2U4YnAvcEN2WE1kb0lE?=
+ =?utf-8?B?MnpWS1FHZmRZZml0akp0SFhHUXk2UnRFWUwzT0V3ZFpkSy9zdG9GVlhGUGxD?=
+ =?utf-8?B?bGFjUUhJb2M2aUFuQ2NXMUpvSDZUa2kyRWlZQU9FeDlwMklHMW9yaHBoNzFJ?=
+ =?utf-8?B?VEJhalMwbm9XR0VhVmFWaituMjlIQWNtN1psTUhvSGw3NFQ4cTEwOEhNc211?=
+ =?utf-8?B?UDVoM0ttUlBoYi9IS2t2Qy9XajFNMm50VzVPUHBuZXhpS3N0enhHZk5RRXJL?=
+ =?utf-8?B?RlJkSUxNaUpWOVkxZWZRbHdGaThrVlhya2oraTlWYlpvYnBXUUJsc2ZIZjVQ?=
+ =?utf-8?B?cmdmNGVFSmNaZVh4dEc1UFg2bjgxaWNYb0pTS0o2NFB2S1UxSjlpQ1JPaDNl?=
+ =?utf-8?B?SWNuSXJQZnpMUHVPVTdKNUNCN2R0bzJKM2RRb1ZMNWZzNVZFWGhhUUlCYWZO?=
+ =?utf-8?B?bS9aclFBREVFcXFwSjNxeW1yWXIvcUVLdHFQQkdnS2VRK1NQOXFvOWJpTCtP?=
+ =?utf-8?B?ZW5sL3NHYld2S25lQ3VuT3d3eFBhVW5RYTRNTHdCWmNteFNCYnhPR0RCeHBS?=
+ =?utf-8?B?ZFBIcjlCZjk0Q0oxK3RWRE5JMHROaWNqZ2VIR082TUx5cXpXTzVUU3BFVk9w?=
+ =?utf-8?B?OGttbFZqSnNEQ1JSaTZtejdneU5keDgzaHlmYVFFWk8yQXhybzhDMjFIU2pz?=
+ =?utf-8?B?VVpTQ25SMXdPZ2ZWaXlPdEprWWpIVjBWZmVOemZPd2F6RnM3dVRGL3MvSGht?=
+ =?utf-8?B?eWsrT2lBdHhKZXJ4ZytSVXBLd0pDWDF6TWhMMkRnbFdnSTVtWlYycjhpQXFu?=
+ =?utf-8?B?ZG5SL04xSXZJd3lMZFdtUnZqT0JYZUZPbTkrbEFkdk1PcllrbkRZUmtTZlU5?=
+ =?utf-8?B?U2lFZVhtRC9JZ24vaTJvWm9FYThZaU8yandSUjhmM1IwNTVRcVV2RGxiZUd6?=
+ =?utf-8?B?cFVFaW9ybWlJM0tlM0JGaHBSb2txR2M1aTJodG9oZXIvc0RkbWlydVlNUTdH?=
+ =?utf-8?B?RnhuRjNndHVMVitiT0FLTHZzTHJnWHcvWnF5eFFZdmhGdjJVNFE3MkJQQWRa?=
+ =?utf-8?B?Vk01UnJ0OE8yM2JoSjljYW9mVmJ0OGhPblpsOWp1RXg3U3d5M1hzMFd6T1d5?=
+ =?utf-8?B?OEJ2OVhIOFFWVm1GZUkrcU5IbGkreis2MVBQYW9rRUZGNjcrMWJCK3Ixa0lr?=
+ =?utf-8?B?RTN0czUyVWh3TGJMQWxKdVRoNGVSd1NPdkpTZ2hTLy9BNkhIRndxbURCYW1l?=
+ =?utf-8?B?WWRtcmcxNUNIbUp3V3YxOEVRUHZhV1MyUGNVTGxKWDd4MVZUcWovT0p0ZnZh?=
+ =?utf-8?B?VWRRZ0FoS2g0Q0toYUJhckFlZlJVUVJIdWJWRzZBNEs2aTR3K05JbGpHSWpY?=
+ =?utf-8?B?alJ6UVRwaDBZN21ZQ3hCMUlVSnduY0p5aXMvWnhuaVAwV1kwUGpXcUlVcUdB?=
+ =?utf-8?B?NHRQUkZYdWhMZ3RNa2dwQTZFalBOSy9tcVVVV0ozajEwM2M0SkRKTVhEMS9D?=
+ =?utf-8?B?Zk9YWXdtSmM2MnliSVI1VzEzVXdkMTJzUlhXWjlNbXhWeWUwRzZ4TnVrOGlW?=
+ =?utf-8?B?VVU4cEFsenFPNGN0bFpJS2dEL2RSUXJiOStmaFpJejNrZVBCVzE5Z1JHYTRR?=
+ =?utf-8?B?UVlIa3VWeWxqVHg1MHZmb1JJRHdKYlpvSktNRnZ2cThWVkxudEc3Q01iSFoz?=
+ =?utf-8?B?RWpPUjdwZnRvbWd4dW9RUDRpdlF0K3ZKRFRESk1obDFKMzRnWVhLOU9SaU4y?=
+ =?utf-8?B?UXUxSkU0ZFYraFRxZkc5ZVd6a2NXenJhaE8zcHJzbkhPWkZlZTRHdHJoSEtt?=
+ =?utf-8?B?Tmx2NlM3dnlBU0M0M1cvSlltZFQ3WDVadVpHblV6QURod0ljNDdoMzAydUF3?=
+ =?utf-8?B?TERkQ1UvMzE1aGFpU21sRnRXUzZHZmtqbW4zQ1BDZEJSajJURUJDb1lvcGNC?=
+ =?utf-8?B?VW1lMzl3WnhlMnZaTEdDWFNVSmYzSFBmNXRXT1BPT2tHOU01ZkFmdzVqaFVr?=
+ =?utf-8?B?dTZPeHdaVzVIQnhMQm1PZkpjN29aVUxUSHVMSkZFMjVrWk5qOUpCQWVjZlp0?=
+ =?utf-8?B?cCtseENFekdVNWFtNkFqTCtjNVVuN2gvWExvOTErNWdyN0ljZUZzVmRrVDAw?=
+ =?utf-8?B?R05LbkJoUS9FMUtKR2U3QUU0VTVDcXBzaEN2SUZOYVdpMGJSb0ZnWW1QcVVY?=
+ =?utf-8?B?V1dlcW0wWXlTKzlBaGtVQmJ5NTBDV1BPN1kzMkZ0VGF1d3ZmOXRVbk5sL0xF?=
+ =?utf-8?Q?OsiFaHVHUav?=
+MIME-Version: 1.0
+
+--ba036548da56d7be41d5e83a6f97ee8321db9abb70e4f27d65fe22f30c0a
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+
+---------------------------------------------------------------------------=
+----
+
+
+
+Hi Leo,
+
+Thank you for applying for the Junior Cyber Security Engineer position at
+Compass Education!
+
+I=E2=80=99d like to inform you that we received your application. Our hirin=
+g team is
+currently reviewing all applications and we will be progressing with our
+recruitment process over the next two weeks. If you are among qualified
+candidates, you will receive an email from one of our recruiters to schedul=
+e an
+initial phone interview. In any case, we will keep you posted on the status=
+ of
+your application.
+
+We appreciate the time you have taken to prepare your application and thank=
+ you
+for considering Compass as a prospective employer.
+
+Best regards,
+
+
+People &amp; Talent
+
+
+
+---------------------------------------------------------------------------=
+----
+
+---------------------------------------------------------------------------=
+----
+
+--ba036548da56d7be41d5e83a6f97ee8321db9abb70e4f27d65fe22f30c0a
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns=3D"http://www.w3.org/1999/xht=
+ml" xmlns=3D"http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <title></title>
+  <style type=3D"text/css">
+  </style>
+<meta name=3D"robots" content=3D"noindex,nofollow">
+</head>
+<body>
+  <div>
+   =20
+  </div>
+  <div>
+    <div>
+  <p>Hi Leo,</p>
+<p>Thank you for applying for the Junior Cyber Security Engineer position a=
+t Compass Education!</p>
+<p>I=E2=80=99d like to inform you that we received your application. Our hi=
+ring team is currently reviewing all applications and we will be progressin=
+g with our recruitment process over the next two weeks. If you are among qu=
+alified candidates, you will receive an email from one of our recruiters to=
+ schedule an initial phone interview. In any case, we will keep you posted =
+on the status of your application.</p>
+<p>We appreciate the time you have taken to prepare your application and th=
+ank you for considering Compass as a prospective employer.</p>
+<p>Best regards,<br></p>
+<p>People &amp; Talent<br></p>
+</div>
+
+  </div>
+  <div>
+   =20
+  </div>
+<img width=3D"1" height=3D"1" alt=3D"" src=3D"https://email-t.workablemail.=
+com/o/eJw0ycFOxiAMAOCnkSOhrIVy4FlMKeBPZGNZNo1vbzx4_mr2hcG0DJEdRgRi88pbSOhUf=
+SXXuXRMunUkJ4CYMEVvRgbSpkoudCpeKGlAKMkxcBTPfYsUeiVhC9Rx1uMN3fe6PqXMtsuYVtdu=
+rjzbssfH89P-_LXuf7LymDvLec7R6rvKUUeVu5mv7H8DAAD__y11Nek"></body>
+</html>
+
+--ba036548da56d7be41d5e83a6f97ee8321db9abb70e4f27d65fe22f30c0a--

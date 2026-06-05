@@ -1,0 +1,290 @@
+{
+  "body": [
+    {
+      "content_header": {
+        "content-transfer-encoding": [
+          "quoted-printable"
+        ],
+        "content-type": [
+          "text/plain; charset=\"utf-8\""
+        ]
+      },
+      "content": "\r\n-------------------------------------------------------------------------------\r\n\r\n\r\n\r\nHi Leo,\r\n\r\nThank you for applying for the Junior Cyber Security Engineer position at\r\nCompass Education!\r\n\r\nI\u2019d like to inform you that we received your application. Our hiring team is\r\ncurrently reviewing all applications and we will be progressing with our\r\nrecruitment process over the next two weeks. If you are among qualified\r\ncandidates, you will receive an email from one of our recruiters to schedule an\r\ninitial phone interview. In any case, we will keep you posted on the status of\r\nyour application.\r\n\r\nWe appreciate the time you have taken to prepare your application and thank you\r\nfor considering Compass as a prospective employer.\r\n\r\nBest regards,\r\n\r\n\r\nPeople &amp; Talent\r\n\r\n\r\n\r\n-------------------------------------------------------------------------------\r\n\r\n-------------------------------------------------------------------------------\r\n",
+      "content_type": "text/plain",
+      "hash": "fef03bfa327ac6e3d97baeebfdcea8fee22ce8f1818156559b30d76fc5787d39",
+      "boundary": "ba036548da56d7be41d5e83a6f97ee8321db9abb70e4f27d65fe22f30c0a"
+    },
+    {
+      "uri": [
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd",
+        "https://email-t.workablemail.com/o/eJw0ycFOxiAMAOCnkSOhrIVy4FlMKeBPZGNZNo1vbzx4_mr2hcG0DJEdRgRi88pbSOhUfSXXuXRMunUkJ4CYMEVvRgbSpkoudCpeKGlAKMkxcBTPfYsUeiVhC9Rx1uMN3fe6PqXMtsuYVtdurjzbssfH89P-_LXuf7LymDvLec7R6rvKUUeVu5mv7H8DAAD__y11Nek",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "domain": [
+        "www.w3.org",
+        "email-t.workablemail.com"
+      ],
+      "content_header": {
+        "content-type": [
+          "text/html; charset=\"utf-8\""
+        ],
+        "content-transfer-encoding": [
+          "quoted-printable"
+        ]
+      },
+      "content": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns=\"http://www.w3.org/1999/xhtml\"><head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n  </style>\r\n<meta name=\"robots\" content=\"noindex,nofollow\">\r\n</head>\r\n<body>\r\n  <div>\r\n    \r\n  </div>\r\n  <div>\r\n    <div>\r\n  <p>Hi Leo,</p>\r\n<p>Thank you for applying for the Junior Cyber Security Engineer position at Compass Education!</p>\r\n<p>I\u2019d like to inform you that we received your application. Our hiring team is currently reviewing all applications and we will be progressing with our recruitment process over the next two weeks. If you are among qualified candidates, you will receive an email from one of our recruiters to schedule an initial phone interview. In any case, we will keep you posted on the status of your application.</p>\r\n<p>We appreciate the time you have taken to prepare your application and thank you for considering Compass as a prospective employer.</p>\r\n<p>Best regards,<br></p>\r\n<p>People &amp; Talent<br></p>\r\n</div>\r\n\r\n  </div>\r\n  <div>\r\n    \r\n  </div>\r\n<img width=\"1\" height=\"1\" alt=\"\" src=\"https://email-t.workablemail.com/o/eJw0ycFOxiAMAOCnkSOhrIVy4FlMKeBPZGNZNo1vbzx4_mr2hcG0DJEdRgRi88pbSOhUfSXXuXRMunUkJ4CYMEVvRgbSpkoudCpeKGlAKMkxcBTPfYsUeiVhC9Rx1uMN3fe6PqXMtsuYVtdurjzbssfH89P-_LXuf7LymDvLec7R6rvKUUeVu5mv7H8DAAD__y11Nek\"></body>\r\n</html>\r\n",
+      "content_type": "text/html",
+      "hash": "7150a557e2ef29534a6d4c5f221b1a4811f47cfb1f9973cdc6187db6c1f26f48",
+      "boundary": "ba036548da56d7be41d5e83a6f97ee8321db9abb70e4f27d65fe22f30c0a"
+    }
+  ],
+  "header": {
+    "subject": "Junior Cyber Security Engineer - Compass Education",
+    "from": "noreply@candidates.workablemail.com",
+    "to": [
+      "leo.nguyen@hotmail.com.au"
+    ],
+    "date": "2026-06-03T08:09:18+00:00",
+    "received": [
+      {
+        "src": "from se2p216mb2825.korp216.prod.outlook.com (2603:1096:101:290::11) by se1p216mb1861.korp216.prod.outlook.com with https; wed, 3 jun 2026 08:09:22 +0000",
+        "from": [
+          "2603:1096:101:290::11",
+          "se2p216mb2825.korp216.prod.outlook.com"
+        ],
+        "by": [
+          "se1p216mb1861.korp216.prod.outlook.com"
+        ],
+        "with": "https",
+        "date": "2026-06-03T08:09:22+00:00"
+      },
+      {
+        "src": "from sn6pr05ca0031.namprd05.prod.outlook.com (2603:10b6:805:de::44) by se2p216mb2825.korp216.prod.outlook.com (2603:1096:101:290::11) with microsoft smtp server (version=tls1_2, cipher=tls_ecdhe_rsa_with_aes_256_gcm_sha384) id 15.21.92.7; wed, 3 jun 2026 08:09:21 +0000",
+        "from": [
+          "sn6pr05ca0031.namprd05.prod.outlook.com",
+          "2603:10b6:805:de::44"
+        ],
+        "by": [
+          "2603:1096:101:290::11",
+          "se2p216mb2825.korp216.prod.outlook.com"
+        ],
+        "with": "microsoft smtp server (version=tls1_2, cipher=tls_ecdhe_rsa_with_aes_256_gcm_sha384) id 15.21.92.7",
+        "date": "2026-06-03T08:09:21+00:00"
+      },
+      {
+        "src": "from sn1pepf000397af.namprd05.prod.outlook.com (2603:10b6:805:de:cafe::1e) by sn6pr05ca0031.outlook.office365.com (2603:10b6:805:de::44) with microsoft smtp server (version=tls1_3, cipher=tls_aes_256_gcm_sha384) id 15.21.92.7 via frontend transport; wed, 3 jun 2026 08:09:19 +0000",
+        "from": [
+          "sn1pepf000397af.namprd05.prod.outlook.com",
+          "2603:10b6:805:de:cafe::1e"
+        ],
+        "by": [
+          "sn6pr05ca0031.outlook.office365.com",
+          "2603:10b6:805:de::44"
+        ],
+        "with": "microsoft smtp server (version=tls1_3, cipher=tls_aes_256_gcm_sha384) id 15.21.92.7 via frontend transport",
+        "date": "2026-06-03T08:09:19+00:00"
+      },
+      {
+        "src": "from c133.cdc51d80.usw1.send.mailgun.net (198.244.57.133) by sn1pepf000397af.mail.protection.outlook.com (10.167.248.53) with microsoft smtp server (version=tls1_2, cipher=tls_ecdhe_rsa_with_aes_256_gcm_sha384) id 15.21.92.5 via frontend transport; wed, 3 jun 2026 08:09:19 +0000",
+        "from": [
+          "c133.cdc51d80.usw1.send.mailgun.net",
+          "198.244.57.133"
+        ],
+        "by": [
+          "sn1pepf000397af.mail.protection.outlook.com",
+          "10.167.248.53"
+        ],
+        "with": "microsoft smtp server (version=tls1_2, cipher=tls_ecdhe_rsa_with_aes_256_gcm_sha384) id 15.21.92.5 via frontend transport",
+        "date": "2026-06-03T08:09:19+00:00"
+      },
+      {
+        "src": "by 5895f959fbe5ebcb43d7353179a812cd486aa0d7f44dcf083eca8142399e3ca3 with http id 6a1fe12eaad705eece9e8463; wed, 03 jun 2026 08:09:18 gmt",
+        "with": "http id 6a1fe12eaad705eece9e8463",
+        "date": "2026-06-03T08:09:18+00:00"
+      }
+    ],
+    "received_domain": [
+      "sn6pr05ca0031.outlook.office365.com",
+      "sn6pr05ca0031.namprd05.prod.outlook.com",
+      "c133.cdc51d80.usw1.send.mailgun.net",
+      "se1p216mb1861.korp216.prod.outlook.com",
+      "sn1pepf000397af.namprd05.prod.outlook.com",
+      "sn1pepf000397af.mail.protection.outlook.com",
+      "se2p216mb2825.korp216.prod.outlook.com"
+    ],
+    "received_ip": [
+      "2603:10b6:805:de::44",
+      "198.244.57.133",
+      "2603:10b6:805:de:cafe::1e",
+      "2603:1096:101:290::11",
+      "15.21.92.5",
+      "15.21.92.7",
+      "10.167.248.53"
+    ],
+    "header": {
+      "x-ms-exchange-eopdirect": [
+        "true"
+      ],
+      "x-ms-exchange-crosstenant-network-message-id": [
+        "045eb2ea-d310-4acb-db51-08dec14769de"
+      ],
+      "dkim-signature": [
+        "a=rsa-sha256; v=1; c=relaxed/relaxed; d=workablemail.com; q=dns/txt; s=mx; t=1780474158; x=1780481358; h=Message-Id: Date: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Sender: Sender; bh=HcZ/HNVprf0NX56u+muOsIceZbTbNYRsTuXAexFclFc=; b=T1gnXkU6WIBgP+txmOWD7pYwkGoMw4y98JlXfkJ5HzDXTvLr9TwOfN+DAzK48t8dRbUu4vLOLysEZPdlCYrg/yrdF4e5q9ZVZB0VxUEX0v24o3ESfPd0JjyzmMyX9Ta6r7MCUfR5qgU5ZZr4rrkO5MO1/Iqv0OSvXE7Tx4s6Yl8="
+      ],
+      "x-ms-exchange-organization-expirationstarttimereason": [
+        "OriginalSubmit"
+      ],
+      "x-mailgun-track-clicks": [
+        "false"
+      ],
+      "x-ms-exchange-crosstenant-id": [
+        "84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa"
+      ],
+      "x-sid-result": [
+        "PASS"
+      ],
+      "x-eoptenantattributedmessage": [
+        "84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0"
+      ],
+      "received-spf": [
+        "Pass (protection.outlook.com: domain of workablemail.com designates 198.244.57.133 as permitted sender) receiver=protection.outlook.com; client-ip=198.244.57.133; helo=c133.cdc51d80.usw1.send.mailgun.net; pr=C"
+      ],
+      "x-ms-exchange-crosstenant-authas": [
+        "Anonymous"
+      ],
+      "received": [
+        "from SE2P216MB2825.KORP216.PROD.OUTLOOK.COM (2603:1096:101:290::11) by SE1P216MB1861.KORP216.PROD.OUTLOOK.COM with HTTPS; Wed, 3 Jun 2026 08:09:22 +0000",
+        "from SN6PR05CA0031.namprd05.prod.outlook.com (2603:10b6:805:de::44) by SE2P216MB2825.KORP216.PROD.OUTLOOK.COM (2603:1096:101:290::11) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026 08:09:21 +0000",
+        "from SN1PEPF000397AF.namprd05.prod.outlook.com (2603:10b6:805:de:cafe::1e) by SN6PR05CA0031.outlook.office365.com (2603:10b6:805:de::44) with Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Wed, 3 Jun 2026 08:09:19 +0000",
+        "from c133.cdc51d80.usw1.send.mailgun.net (198.244.57.133) by SN1PEPF000397AF.mail.protection.outlook.com (10.167.248.53) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.5 via Frontend Transport; Wed, 3 Jun 2026 08:09:19 +0000",
+        "by 5895f959fbe5ebcb43d7353179a812cd486aa0d7f44dcf083eca8142399e3ca3 with HTTP id 6a1fe12eaad705eece9e8463; Wed, 03 Jun 2026 08:09:18 GMT"
+      ],
+      "x-ms-exchange-crosstenant-fromentityheader": [
+        "Internet"
+      ],
+      "date": [
+        "Wed, 03 Jun 2026 08:09:18 +0000"
+      ],
+      "from": [
+        "Compass Education <noreply@candidates.workablemail.com>"
+      ],
+      "return-path": [
+        "bounce+2691f9.2b81-leo.nguyen=hotmail.com.au@workablemail.com"
+      ],
+      "x-microsoft-antispam": [
+        "BCL:4;ARA:1444111002|58200799025|60050799009|10300799038|47200799027|29080799009|26130799012|10049299003|1370799030|1360799030|1380799030|1602099012|1122599022|440099028|3412199025|4302099013|30041999003;"
+      ],
+      "x-ms-exchange-organization-network-message-id": [
+        "045eb2ea-d310-4acb-db51-08dec14769de"
+      ],
+      "x-ms-office365-filtering-correlation-id": [
+        "045eb2ea-d310-4acb-db51-08dec14769de"
+      ],
+      "x-message-delivery": [
+        "Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0z"
+      ],
+      "content-type": [
+        "multipart/alternative; boundary=\"ba036548da56d7be41d5e83a6f97ee8321db9abb70e4f27d65fe22f30c0a\""
+      ],
+      "x-microsoft-antispam-mailbox-delivery": [
+        "\tucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000311)(920221119095)(920221120095)(90000117)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(2008001181)(4810010)(4910033)(9575002)(10195002)(9320005)(120001);"
+      ],
+      "x-ms-publictraffictype": [
+        "Email"
+      ],
+      "x-incomingtopheadermarker": [
+        "OriginalChecksum:531B1C4AD1558ED2AE4221517BA01881CED24BE06A5CF9187892726A4486C609;UpperCasedChecksum:C51D162AED25F321CB29DA8055E8CFDEC6EAAD56FF55E86CADE26A01F856F41A;SizeAsReceived:1281;Count:15"
+      ],
+      "x-mailgun-sending-ip": [
+        "198.244.57.133"
+      ],
+      "x-sid-pra": [
+        "NOREPLY@CANDIDATES.WORKABLEMAIL.COM"
+      ],
+      "x-ms-exchange-transport-crosstenantheadersstamped": [
+        "SE2P216MB2825"
+      ],
+      "message-id": [
+        "15cecc506f5b2a59c641b908187a28f3756fd5a8.15f4ldn@workablemail.com"
+      ],
+      "sender": [
+        "noreply=candidates.workablemail.com@workablemail.com"
+      ],
+      "x-incomingheadercount": [
+        "15"
+      ],
+      "x-sender-ip": [
+        "198.244.57.133"
+      ],
+      "mime-version": [
+        "1.0"
+      ],
+      "x-ms-exchange-organization-expirationinterval": [
+        "1:00:00:00.0000000"
+      ],
+      "x-ms-exchange-organization-authas": [
+        "Anonymous"
+      ],
+      "x-ms-exchange-transport-endtoendlatency": [
+        "00:00:03.2742611"
+      ],
+      "x-ms-exchange-organization-scl": [
+        "1"
+      ],
+      "x-ms-exchange-organization-messagedirectionality": [
+        "Incoming"
+      ],
+      "x-ms-traffictypediagnostic": [
+        "SN1PEPF000397AF:EE_|SE2P216MB2825:EE_|SE1P216MB1861:EE_"
+      ],
+      "x-ms-exchange-organization-expirationstarttime": [
+        "03 Jun 2026 08:09:19.6240 (UTC)"
+      ],
+      "x-ms-exchange-crosstenant-authsource": [
+        "SN1PEPF000397AF.namprd05.prod.outlook.com"
+      ],
+      "x-mailgun-sid": [
+        "WyIwNjE1ZSIsImxlby5uZ3V5ZW5AaG90bWFpbC5jb20uYXUiLCIyYjgxIl0="
+      ],
+      "x-mailgun-track-opens": [
+        "true"
+      ],
+      "x-ms-exchange-processed-by-bccfoldering": [
+        "15.21.0092.005"
+      ],
+      "x-ms-exchange-organization-expirationintervalreason": [
+        "OriginalSubmit"
+      ],
+      "x-eopattributedmessage": [
+        "0"
+      ],
+      "x-ms-exchange-crosstenant-rms-persistedconsumerorg": [
+        "00000000-0000-0000-0000-000000000000"
+      ],
+      "x-microsoft-antispam-message-info": [
+        "\tjaZr91fkAikq2NbGNgpH3c0l0Y/zCcJWprbC4s91GTBrIjHBGRZpfgjlsa4MfWqyxP+N1pfbuerFJQQIhG06i6bhMtXl6+hpkT+h198XuV+QIH0bG239w9zl2ekQBNstArGRo8tr9ZJD80VclO9rCzTEhzTXYzY3Ti30NW2J6og0Q4IWGTJkrV8SPo2UDU6tgomV39VOy0zaEH9LG4/e8bp/pCvXMdoID2zVKQGfdYfitjJtHXGQy6RtEYL3OEwdZdK/stoFVXFPlClacQHIoc6iAnCcW1JoH6Tki2EiYAOEx9p2IG1orhph71ITBajS0noWGEaVaVj+n29HAcm7ZlMHoHl74T8q108HMsmuP5h3KmRPhb/HKkvC/Wj1M2ntW5OPpnexiKstzxGfNQErKFRdILMiJV9Y1efQlwFi8kVXrkj+i9VbZobpWQBlsfHf5Prgf4eEJcZeXxtG5PX6n81icXoJSKJ64PvKU1J9iCROh3eIcnIrPfzLPuOU7J5CB7dto2J3dQoVL5fs5VEXhaQIBafNm/ZrQADEEqqpJ3qymrYr/qEKtqPBGgKeQ+SP9qo9biL+Oenl/sGbWvKneCunOwwxPaUnQa4MLwBZcmxSBbxOGDBxpRdPHr9Bf94CJ1+tVDNI0tNicjgeHGO6MLyqzWO5TSpEVOp8kmlVjJsDCRRi6mz7gyNdx83hyfaQEZO2Axro8C21HSjsUZSCnR1wOgfViyOtJkYjHV0VfeNzfOwazFs7uTF/s/Hhmyk+OiAtxJerxg+RUpKwJCX1zMhL2DglWgI5mZV2r8iAqndnR/N1IvIwyLdWmRvjOBXeFOm9+lAdvMOrYknDYRkSfU9SiEeXmD/Ign/i2oZoEa8YiO2jwRR8f3R055QqUvDlbeGzpUEiormiI3Ke3BFhpRokqGc5i2htoher/sDdmiruYMQ7GFxnF3gtuLV+bOAKLvsLrgXw/ZqyxQYvhFv2U4Q72BPAdZVM5Rrt8O23bhJ9caofVbt8hOnZl9juEx7Swy3Xs0WzOWy8Bv9XH8QVVmFeI+qNHli+z+61PPaokEFF67+1bB+r1kIkE3ts52UhwLbLAlJuTh4eRwSOvJSghS//A6HHFwqmDBameYdmrg15CHmJwWv18EQPvaWS2PcULlJX7x1VTqj/OJtfvaUdQgAhKh4CKhaBarAefRUQRHubVG6A4K6i4w+NIljGIjXjRzQTph0Y7mYCxB1IUJwncJyis/ZxniP0WY0PjWqIUqGA4tPRFXuhLgtMkgpA6EjPNK/mqUUWJ3j103c4JDJMXD1/CfOXYwmJc62ybIR5W13Uwd12sRXWZ9MmxVye0G6xNuk8iVUU8pAlzqO4ctlZIKgD/dRQrb9+fhZIz3kePBW19gRGa4QQYHkuVyljTx50vfoRIDwJbZoJKMFvvq8VVLntG7CMbHZ3EjOR7pftomgxuoQP4ivQt+vJDTDJMhl1J34gYXK9ORiN2Qu1JE4dV+hTqfG9eWzkcWzrahO3prsnHOZFee4GtrhHKmNlv6S7vyASC43W/JYmdT7X5ZuZGnUzADhwIc47h302uAwLDdCU/315haiSmlFtWS6Gfkjmn3CPCdBRj2TEBCoYopcBUme39wZxe2vZLGCXSUJf3HPf5tWOPOOkG9M5fAfw5jhUku6OxwZW5HBxLBmOfJc7oZULTHuLJFE25kZNj9JBAecfZtp+lxCEzGU5am6AjL+c5Un7h/XLo91+5gr7IceFsVdkT00GNKnBhQ/E1KJGe7AE4U5CqpshCvIFNaWi0bRoFgYmPqUXWWeqm0YyS+9AhkUBby50CWPO7Y32FtTauwvf9tUnNl/LEOsiFaHVHUav"
+      ],
+      "to": [
+        "leo.nguyen@hotmail.com.au"
+      ],
+      "x-mailgun-tag": [
+        "applied_candidate"
+      ],
+      "x-ms-exchange-organization-authsource": [
+        "SN1PEPF000397AF.namprd05.prod.outlook.com"
+      ],
+      "subject": [
+        "Junior Cyber Security Engineer - Compass Education"
+      ],
+      "authentication-results": [
+        "spf=pass (sender IP is 198.244.57.133) smtp.mailfrom=workablemail.com; dkim=pass (signature was verified) header.d=workablemail.com;dmarc=pass action=none header.from=candidates.workablemail.com;compauth=pass reason=100"
+      ],
+      "x-ms-exchange-crosstenant-originalarrivaltime": [
+        "03 Jun 2026 08:09:19.3518 (UTC)"
+      ],
+      "x-ms-userlastlogontime": [
+        "6/3/2026 8:02:05 AM"
+      ]
+    }
+  }
+}
