@@ -1,5 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+import json
 import eml_parser
 
 app = FastAPI()
@@ -20,4 +22,4 @@ def parse_email(eml_bytes: bytes):
 async def analyse_email(file: UploadFile = File(...)):
     raw_bytes = await file.read()
     parsed = parse_email(raw_bytes)
-    return {"is_phishing": False, "parsed": str(parsed)}
+    return JSONResponse(content=json.loads(json.dumps(parsed, default=str)))
