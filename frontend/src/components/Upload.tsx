@@ -19,11 +19,13 @@ interface EmailResult {
         mime_type: string
         raw: string
     }[]
+    analysis: string
 }
 
 export const Upload = () => {
     const [file, setFile] = useState<File | null>(null)
     const [result, setResult] = useState<EmailResult | null>(null)
+    const [loading, setLoading] = useState(false)
 
     const basic_headers = [
         { label: 'Subject', value: result?.header?.subject },
@@ -33,29 +35,42 @@ export const Upload = () => {
         { label: 'Date', value: result?.header?.date },
     ]
 
+    const analysis = { label: 'Analysis', value: result?.analysis }
+
+    
+
+
     const handleSubmit = async () => {
         if (!file) return
 
         const formData = new FormData()
         formData.append('file', file)
 
-        const response = await fetch('/api/analyse', { // uncomment when in production
-        // const response = await fetch('http://localhost:8080/analyse', {
-            method: 'POST',
-            body: formData,
-        })
-        const text = await response.text()
-        console.log("Raw response:", text)
-        console.log("Status:", response.status)
+        setLoading(true)
+            try{
+            // const response = await fetch('/api/analyse', { // uncomment when in production
+            const response = await fetch('http://localhost:8080/analyse', {
+                method: 'POST',
+                body: formData,
+            })
+            const text = await response.text()
+            console.log("Raw response:", text)
+            console.log("Status:", response.status)
 
-        if (!text) {
-            console.error("Empty response from server")
-            return
+            if (!text) {
+                console.error("Empty response from server")
+                return
+            }
+            
+            const data = JSON.parse(text)
+            console.log(data)
+            setResult(data)
+        } catch (error) {
+            console.error("Error fetching email data:", error)
+        } finally {
+            setLoading(false)
         }
-        
-        const data = JSON.parse(text)
-        console.log(data)
-        setResult(data)
+
     }
 
     return (
@@ -81,8 +96,14 @@ export const Upload = () => {
                                     {field.label}: {field.value}
                                 </div>
                             ))}
+                            {analysis.value && (
+                                <div>
+                                    {analysis.label}: {analysis.value}
+                                </div>
+                            )}
                         </pre>
                     )}
+                    {loading && <p>Processing...</p>}
                 </div>
             </div>
         </>
