@@ -31,14 +31,11 @@ export const Upload = () => {
         { label: 'Subject', value: result?.header?.subject },
         { label: 'Message ID', value: result?.header?.header?.["message-id"] },
         { label: 'From', value: result?.header?.from },
-        { label: 'To', value: result?.header?.to.join(', ') },
+        { label: 'To', value: result?.header?.to?.join(', ') },
         { label: 'Date', value: result?.header?.date },
     ]
 
     const analysis = { label: 'Analysis', value: result?.analysis }
-
-    
-
 
     const handleSubmit = async () => {
         if (!file) return
@@ -49,13 +46,14 @@ export const Upload = () => {
         setLoading(true)
             try{
             // const response = await fetch('/api/analyse', { // uncomment when in production
+            // const response = await fetch('http://192.168.1.50:8080/analyse', {
             const response = await fetch('http://localhost:8080/analyse', {
                 method: 'POST',
                 body: formData,
             })
             const text = await response.text()
-            console.log("Raw response:", text)
-            console.log("Status:", response.status)
+            // console.log("Raw response:", text)
+            // console.log("Status:", response.status)
 
             if (!text) {
                 console.error("Empty response from server")
@@ -96,9 +94,9 @@ export const Upload = () => {
                                     {field.label}: {field.value}
                                 </div>
                             ))}
-                            {analysis.value && (
+                            {result?.analysis && (
                                 <div>
-                                    {analysis.label}: {analysis.value}
+                                    {analysis.label}: {result.analysis}
                                 </div>
                             )}
                         </pre>
