@@ -45,9 +45,9 @@ export const Upload = () => {
 
         setLoading(true)
             try{
-            // const response = await fetch('/api/analyse', { // uncomment when in production
+            const response = await fetch('/api/analyse', { // uncomment when in production
             // const response = await fetch('http://192.168.1.50:8080/analyse', {
-            const response = await fetch('http://localhost:8080/analyse', {
+            // const response = await fetch('http://localhost:8080/analyse', {
                 method: 'POST',
                 body: formData,
             })
