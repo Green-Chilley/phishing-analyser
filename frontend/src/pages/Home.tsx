@@ -1,9 +1,13 @@
-import { Upload } from '@/components/Upload'
+import { Navbar } from '@/components/Navbar'
+import { ThemeToggle } from '@/components/ThemeToggle'
+import { UploadEML } from '@/components/UploadEML'
 
 export const Home = () => {
     return (
         <>
-            <Upload />
+            <Navbar />
+            <ThemeToggle />
+            <UploadEML />
         </>
     )
 }
