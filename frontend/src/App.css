@@ -144,9 +144,8 @@
     @apply transition-transform duration-300 hover:scale-[1.02]
 }
 
-@utility card-hover-alt {
-    @apply transform hover:scale-[1.02] transition-all duration-300 
-    hover:bg-[rgba(100,215,119,0.5)]/20
+@utility card-hover-bg {
+    @apply transition-all duration-300 hover:bg-[rgba(100,215,119,0.5)]/20 
 }
 
 @utility gradient-border {

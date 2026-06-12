@@ -30,7 +30,7 @@ export const Navbar = () => {
                     href='#upload'
                 >
                     <span className="relative z-10"> 
-                        <span className="text-foreground"> Phishing Analyser</span>
+                        <span className="text-foreground"> Email Analyser</span>
                     </span>
                 </a>
 

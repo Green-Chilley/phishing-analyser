@@ -94,5 +94,4 @@ async def analyse_email(file: UploadFile = File(...)):
     )
 
     analysis = response["message"]["content"]
-    
-    return JSONResponse(content=json.loads(json.dumps({**parsed, "analysis": analysis}, default=str)))
+    return JSONResponse(content={"analysis": analysis})

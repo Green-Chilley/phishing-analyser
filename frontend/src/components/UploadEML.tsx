@@ -45,6 +45,7 @@ export const UploadEML = () => {
     const analysis = { label: 'Analysis', value: result?.analysis }
 
     const handleSubmit = async () => {
+        setResult(null)
         if (!file) {
             setError("Please upload a file first")
             return
@@ -56,9 +57,9 @@ export const UploadEML = () => {
 
         setLoading(true)
             try{
-            // const parseRes = await fetch('/api/analyse', { // uncomment when in production
-            // const parseRes = await fetch('http://192.168.1.50:8080/analyse', {
-            const parseRes = await fetch('http://localhost:8080/parse', {
+            const parseRes = await fetch('/api/analyse', { // uncomment when testing prod
+            // const parseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
+            // const parseRes = await fetch('http://localhost:8080/parse', {
                 method: 'POST',
                 body: formData,
             })
@@ -81,7 +82,9 @@ export const UploadEML = () => {
         }
         setLoadingAnalysis(true)
             try{
-                const analyseRes = await fetch('http://localhost:8080/analyse', {
+                const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
+                // const analyseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
+                // const analyseRes = await fetch('http://localhost:8080/analyse', {
                     method:'POST',
                     body: formData,
             })
@@ -113,7 +116,7 @@ export const UploadEML = () => {
             >
                 <button 
                     className='flex flex-col items-center gap-2 border-dashed border-card-border 
-                                border px-80 py-20 cursor-pointer rounded-2xl card-hover-alt'
+                                border px-80 py-20 cursor-pointer rounded-2xl card-hover-bg'
                     onClick={() => fileInputRef.current?.click()}
                 >
                     <input
@@ -128,6 +131,7 @@ export const UploadEML = () => {
                 </button>
                 <button
                     onClick={handleSubmit}
+                    disabled={loading || loadingAnalysis}
                     className='mt-5 border-2 border-primary cosmic-button'
                 >
                     Analyse
