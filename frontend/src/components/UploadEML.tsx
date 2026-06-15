@@ -1,27 +1,11 @@
 import { useState, useRef } from 'react'
 import { Upload, LoaderCircle  } from 'lucide-react'
-
-interface EmailResult {
-    header: {
-        from: string
-        subject: string
-        date: string
-        to: string[]
-        header: {
-            "message-id": string
-        }
-    }
-    body: {
-        content_type: string
-        content: string
-    }[]
-    attachment: {
-        filename: string
-        mime_type: string
-        raw: string
-    }[]
-    analysis: string
-}
+import type { EmailResult } from '@/types/email'
+import { getAnalysis } from '@/headers/headers'
+import { XHeaders } from '@/components/XHeaders'
+import { BasicHeaders } from '@/components/BasicHeaders'
+import { Body } from '@/components/Body'
+import { ShowBody } from '@/components/ShowBody'
 
 export const UploadEML = () => {
     const [file, setFile] = useState<File | null>(null)
@@ -33,16 +17,8 @@ export const UploadEML = () => {
     const fileInputRef = useRef<HTMLInputElement>(null)
     // TODO: fix time out error when waiting for ollama to respond
     // TODO: style the parsed data
-
-    const basic_headers = [
-        { label: 'Subject', value: result?.header?.subject },
-        { label: 'Message ID', value: result?.header?.header?.["message-id"] },
-        { label: 'From', value: result?.header?.from },
-        { label: 'To', value: result?.header?.to?.join(', ') },
-        { label: 'Date', value: result?.header?.date },
-    ]
-
-    const analysis = { label: 'Analysis', value: result?.analysis }
+    
+    const analysis = getAnalysis(result)
 
     const handleSubmit = async () => {
         setResult(null)
@@ -57,9 +33,9 @@ export const UploadEML = () => {
 
         setLoading(true)
             try{
-            const parseRes = await fetch('/api/analyse', { // uncomment when testing prod
+            // const parseRes = await fetch('/api/analyse', { // uncomment when testing prod
             // const parseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
-            // const parseRes = await fetch('http://localhost:8080/parse', {
+            const parseRes = await fetch('http://localhost:8080/parse', {
                 method: 'POST',
                 body: formData,
             })
@@ -82,9 +58,9 @@ export const UploadEML = () => {
         }
         setLoadingAnalysis(true)
             try{
-                const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
+                // const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
                 // const analyseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
-                // const analyseRes = await fetch('http://localhost:8080/analyse', {
+                const analyseRes = await fetch('http://localhost:8080/analyse', {
                     method:'POST',
                     body: formData,
             })
@@ -110,58 +86,50 @@ export const UploadEML = () => {
 
     return (
         <>
-            <div 
-                className="relative min-h-screen flex flex-col items-center justify-center px-4"
-                id="upload"
-            >
-                <button 
-                    className='flex flex-col items-center gap-2 border-dashed border-card-border 
-                                border px-80 py-20 cursor-pointer rounded-2xl card-hover-bg'
-                    onClick={() => fileInputRef.current?.click()}
-                >
-                    <input
-                        ref={fileInputRef}
-                        type="file"
-                        accept=".eml"
-                        onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-                        className="hidden"
-                    />
-                    <Upload />
-                    {file ? file.name : "Upload email here:"}
-                </button>
-                <button
-                    onClick={handleSubmit}
-                    disabled={loading || loadingAnalysis}
-                    className='mt-5 border-2 border-primary cosmic-button'
-                >
-                    Analyse
-                </button>
-                {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-                <div className="w-full flex flex-col items-center">
-                    {result && (
-                        <pre className="p-4 rounded text-sm text-left w-full mt-4 overflow-x-auto wrap-break-word">
-
-                            {basic_headers.map((field, index) => (
-                                <div key={index}>
-                                    {field.label}: {field.value}
-                                </div>
-                            ))}
-                        </pre>
-                    )}
+            <div className="flex flex-col items-center px-4" id="upload">
+                <div className='mt-100 flex flex-col items-center justify-center'>
+                    <button 
+                        className='flex flex-col items-center gap-2 border-dashed border-card-border 
+                                    border px-80 py-20 cursor-pointer rounded-2xl card-hover-bg'
+                        onClick={() => fileInputRef.current?.click()}
+                    >
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept=".eml"
+                            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                            className="hidden"
+                        />
+                        <Upload />
+                        {file ? file.name : "Upload email here:"}
+                    </button>
+                    <button
+                        onClick={handleSubmit}
+                        disabled={loading || loadingAnalysis}
+                        className='mt-5 border-2 border-primary cosmic-button'
+                    >
+                        Analyse
+                    </button>
+                    {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+                    {loading && <div className="mt-6 animate-spin"><LoaderCircle size={32} /></div>}
                 </div>
-                <div className="w-full flex flex-col items-center">
-                    {loading && <div className="absolute mt-6 animate-spin"><LoaderCircle size={32} /></div>}
-                    {result?.analysis && (
-                        <div>
-                            {analysis.label}: {result.analysis}
-                        </div>
-                    )}
-                    {loadingAnalysis && 
-                        <div className='flex flex-col items-center'>
-                            <span>Loading report</span>
-                            <div className="mt-2 animate-spin"><LoaderCircle size={32} /></div>
-                        </div>}
-                </div>
+                {result && (
+                    <div className="w-full max-w-400 flex flex-col mb-10">
+                        <BasicHeaders result={result}/>
+                        <XHeaders result={result}/>
+                        <Body result={result}/>
+                        <ShowBody result={result}/>
+                        {result?.analysis && (
+                            <div>{analysis.label}: {result.analysis}</div>
+                        )}
+                        {loadingAnalysis && 
+                            <div className='flex flex-col items-center'>
+                                <span>Loading report</span>
+                                <div className="mt-2 animate-spin"><LoaderCircle size={32} /></div>
+                            </div>
+                        }
+                    </div>
+                )}
             </div>
         </>
     )

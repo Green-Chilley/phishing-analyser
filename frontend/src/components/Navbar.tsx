@@ -20,7 +20,7 @@ export const Navbar = () => {
     return (
         <nav 
             className={cn(
-                "fixed w-full backdrop-blur-md shadow-md z-40 transition-all duration-300", 
+                "fixed w-full backdrop-blur-md z-40 transition-all duration-300", 
                 isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-md" : "py-5"
             )}
         >

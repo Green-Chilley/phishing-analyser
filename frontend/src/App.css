@@ -112,6 +112,9 @@
         background: rgb(71, 185, 96);
         border-radius: 10px;
     }
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(47, 104, 59);
+    }
 }
 
 @utility container {
