@@ -42,7 +42,7 @@ export const getBody = (result: EmailResult | null) => [
 ]
 
 export const getTextHtml = (result: EmailResult | null) => [
-    { label: "Text", value: result?.body?.[0]?.["content"]},
+    { label: "Plain", value: result?.body?.[0]?.["content"]},
     { label: "HTML", value: result?.body?.[1]?.["content"]}
 ]
 
