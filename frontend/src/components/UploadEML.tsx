@@ -90,7 +90,7 @@ export const UploadEML = () => {
                 <div className='mt-100 flex flex-col items-center justify-center'>
                     <button 
                         className='flex flex-col items-center gap-2 border-dashed border-card-border 
-                                    border px-80 py-20 cursor-pointer rounded-2xl card-hover-bg'
+                                    border px-8 py-20 cursor-pointer rounded-2xl card-hover-bg w-188'
                         onClick={() => fileInputRef.current?.click()}
                     >
                         <input
@@ -101,7 +101,11 @@ export const UploadEML = () => {
                             className="hidden"
                         />
                         <Upload />
-                        {file ? file.name : "Upload email here:"}
+                        <span className='w-full truncate text-center'>
+                            {file ? file.name.slice(0, 20) + (file.name.length > 20 ? '...' : '') : 
+                            "Upload email here:"}
+                        </span>
+                        
                     </button>
                     <button
                         onClick={handleSubmit}

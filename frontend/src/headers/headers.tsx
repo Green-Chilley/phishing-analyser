@@ -35,16 +35,25 @@ export const getXHeaders = (result: EmailResult | null) => [
     },
 ]
 
-export const getBody = (result: EmailResult | null) => [
-    { label: "Hash", value: result?.body?.[0]?.["hash"]},
-    { label: "Domain", value: result?.body?.[1]?.["domain"]?.join('\n')},
-    { label: "URI", value: result?.body?.[1]?.["uri"]?.join('\n\n')},
-]
+export const getBody = (result: EmailResult | null) => {
+    const hashPart = result?.body?.find(p => 'hash' in p)
+    const contentPart = result?.body?.find(p => 'domain' in p)
 
-export const getTextHtml = (result: EmailResult | null) => [
-    { label: "Plain", value: result?.body?.[0]?.["content"]},
-    { label: "HTML", value: result?.body?.[1]?.["content"]}
-]
+    return [
+        { label: "Hash", value: hashPart?.["hash"] },
+        { label: "Domain", value: contentPart?.["domain"]?.join('\n') },
+        { label: "URI", value: contentPart?.["uri"]?.join('\n\n') },
+    ]
+}
+
+export const getTextHtml = (result: EmailResult | null) => {
+    const plainPart = result?.body?.find(p => p.content_type === 'text/plain')
+    const htmlPart = result?.body?.find(p => p.content_type === 'text/html')
+    return [
+        { label: "Plain", value: plainPart?.content },
+        { label: "HTML", value: htmlPart?.content },
+    ]
+}
 
 export const getAnalysis = (result: EmailResult | null) => (
     { label: 'Analysis', value: result?.analysis }
