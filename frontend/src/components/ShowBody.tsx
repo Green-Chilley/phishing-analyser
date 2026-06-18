@@ -2,7 +2,6 @@ import { getTextHtml } from '@/headers/headers'
 import type { EmailResult } from '@/types/email'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import html from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'
 import { useState } from 'react'
 
 type View = 'text/html' | 'text/plain'
