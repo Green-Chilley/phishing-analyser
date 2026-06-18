@@ -8,6 +8,21 @@ export const getBasicHeaders = (result: EmailResult | null) => [
     { label: 'Date', value: result?.header?.date },
 ]
 
+export const getSecurityHeaders = (result: EmailResult | null) => [
+    {
+        label: "authentication-results",
+        value: result?.header?.header?.["authentication-results"]
+    },
+    {
+        label: "dkim-signature",
+        value: result?.header?.header?.["dkim-signature"]
+    },
+    {
+        label: "received-spf",
+        value: result?.header?.header?.["received-spf"]
+    },
+]
+
 export const getXHeaders = (result: EmailResult | null) => [
     { 
         label: 'x-ms-exchange-eopdirect', 

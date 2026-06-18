@@ -40,7 +40,6 @@ export const ShowBody = ({ result }: Props) => {
                         >
                             {v}
                         </button>
-                        
                     ))}
                 </div>
                 <div className='mt-4'>
