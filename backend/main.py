@@ -9,7 +9,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://phishinganalyser.duckdns.org",
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -80,19 +83,22 @@ async def analyse_email(file: UploadFile = File(...)):
             Note that there may not be enough context to make a definitive judgement, so focus on the most likely indicators based on the provided data.
             """
     
-    response = client.chat(
-        model="llama3.2:3b",
-        messages=[
-            {
-                "role": "system",
-                "content": "You are a senior email security analyst with 10 years experience. You are precise and evidence based. You never flag an email as phishing without concrete proof. You know that SPF/DKIM/DMARC passing is a strong legitimacy signal."
-            },
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
-    )
+    try:
+        response = client.chat(
+            model="llama3.2:3b",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a senior email security analyst with 10 years experience. You are precise and evidence based. You never flag an email as phishing without concrete proof. You know that SPF/DKIM/DMARC passing is a strong legitimacy signal."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+        )
+        analysis = response["message"]["content"]
+    except ConnectionError:
+        analysis = "LLM analysis unavailable — Ollama is not running."
 
-    analysis = response["message"]["content"]
     return JSONResponse(content={"analysis": analysis})
