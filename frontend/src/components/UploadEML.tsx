@@ -18,7 +18,7 @@ export const UploadEML = () => {
     const [file, setFile] = useState<File | null>(null)
     const [result, setResult] = useState<EmailResult | null>(null)
     const [loading, setLoading] = useState(false)
-    const [loadingAnalysis, setLoadingAnalysis] = useState(false)
+    // const [loadingAnalysis, setLoadingAnalysis] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
     const fileInputRef = useRef<HTMLInputElement>(null)
