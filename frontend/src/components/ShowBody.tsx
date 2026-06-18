@@ -1,7 +1,8 @@
 import { getTextHtml } from '@/headers/headers'
 import type { EmailResult } from '@/types/email'
-// import SyntaxHighlighter from 'react-syntax-highlighter'
-// import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import html from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'
 import { useState } from 'react'
 
 type View = 'text/html' | 'text/plain'
@@ -45,17 +46,13 @@ export const ShowBody = ({ result }: Props) => {
                 <div className='mt-4'>
                     {view === 'text/html' ? (
                         <div className='grid sm:grid-cols-2 mt-4 gap-6'>
-                            <pre
-                            >
-                                {String(html.value)}
-                            </pre>
-                            {/* <SyntaxHighlighter
+                            <SyntaxHighlighter
                                 className='rounded-lg h-96 text-sm'
                                 language="html"
                                 style={atomOneDark}
                             >
                                 {String(html.value)}
-                            </SyntaxHighlighter> */}
+                            </SyntaxHighlighter>
                             <iframe
                                 srcDoc={html.value}
                                 sandbox=""
