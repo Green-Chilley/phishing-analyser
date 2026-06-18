@@ -119,7 +119,8 @@ export const UploadEML = () => {
                     </button>
                     <button
                         onClick={handleSubmit}
-                        disabled={loading || loadingAnalysis}
+                        // disabled={loading || loadingAnalysis}
+                        disabled={loading}
                         className='mt-5 border-2 border-primary cosmic-button'
                     >
                         Analyse
@@ -137,12 +138,12 @@ export const UploadEML = () => {
                         {result?.analysis && (
                             <div>{analysis.label}: {result.analysis}</div>
                         )}
-                        {loadingAnalysis && 
+                        {/* {loadingAnalysis && 
                             <div className='flex flex-col items-center'>
                                 <span>Loading report</span>
                                 <div className="mt-2 animate-spin"><LoaderCircle size={32} /></div>
                             </div>
-                        }
+                        } */}
                     </div>
                 )}
             </div>
