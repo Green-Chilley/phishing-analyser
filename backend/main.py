@@ -23,6 +23,7 @@ def parse_email(eml_bytes: bytes):
 async def parse_email_endpoint(file: UploadFile = File(...)):
     raw_bytes = await file.read()
     parsed = parse_email(raw_bytes)
+    print(str(parsed))
     return JSONResponse(content=json.loads(json.dumps(parsed, default=str)))
 
 @app.post("/analyse")
