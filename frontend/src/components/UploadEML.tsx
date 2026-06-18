@@ -38,8 +38,8 @@ export const UploadEML = () => {
 
         setLoading(true)
             try{
-            const parseRes = await fetch('/api/analyse', { // uncomment when testing prod
-            // const parseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
+            const parseRes = await fetch('/api/parse', { // uncomment when testing prod
+            // const parseRes = await fetch('http://192.168.1.50:8080/parse', { // uncomment when testing webserver
             // const parseRes = await fetch('http://localhost:8080/parse', {
                 method: 'POST',
                 body: formData,
