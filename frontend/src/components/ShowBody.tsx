@@ -4,7 +4,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { useState } from 'react'
 
-type View = 'text/html' | 'text/plain'
+type View = 'text/html' | 'text/plain' | 'json'
 interface Props {
     result: EmailResult | null
 }
@@ -22,7 +22,8 @@ export const ShowBody = ({ result }: Props) => {
 
     const views: View[] = [
         ...(isPlain ? ['text/plain' as View] : []),
-        ...(isHtml ? ['text/html' as View] : [])
+        ...(isHtml ? ['text/html' as View] : []),
+        ...(['json' as View])
     ]
 
     return (
@@ -43,7 +44,7 @@ export const ShowBody = ({ result }: Props) => {
                     ))}
                 </div>
                 <div className='mt-4'>
-                    {view === 'text/html' ? (
+                    {view === 'text/html' && (
                         <div className='grid sm:grid-cols-2 mt-4 gap-6'>
                             <SyntaxHighlighter
                                 className='rounded-lg h-96 text-sm'
@@ -58,11 +59,21 @@ export const ShowBody = ({ result }: Props) => {
                                 className="flex-auto w-full h-96 border-0 bg-white rounded-lg"
                             />
                         </div>
-                    ) : (
+                    )}
+                    {view === 'text/plain' && (
                         <pre className='border-0 rounded-lg gradient-border h-96 
                                         text-sm flex-auto w-full bg-gray-950 pl-6'>
                             {plain.value}
                         </pre>
+                    )}
+                    {view === 'json' && (
+                        <SyntaxHighlighter
+                            className='rounded-lg h-96 text-sm'
+                            language="json"
+                            style={atomOneDark}
+                        >
+                            {JSON.stringify(result, null, 2)}
+                        </SyntaxHighlighter>
                     )}
                 </div>
             </div>

@@ -5,7 +5,6 @@ import { getAnalysis } from '@/headers/headers'
 import { XHeaders } from '@/components/XHeaders'
 import { BasicHeaders } from '@/components/BasicHeaders'
 import { Body } from '@/components/Body'
-import { ShowBody } from '@/components/ShowBody'
 import { SecurityHeaders } from '@/components/SecurityHeaders'
 
 
@@ -18,8 +17,9 @@ export const UploadEML = () => {
     const [file, setFile] = useState<File | null>(null)
     const [result, setResult] = useState<EmailResult | null>(null)
     const [loading, setLoading] = useState(false)
-    // const [loadingAnalysis, setLoadingAnalysis] = useState(false)
+    const [loadingAnalysis, setLoadingAnalysis] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [emlData, setEmlData] = useState<string>('')
 
     const fileInputRef = useRef<HTMLInputElement>(null)
     
@@ -38,9 +38,9 @@ export const UploadEML = () => {
 
         setLoading(true)
             try{
-            const parseRes = await fetch('/api/parse', { // uncomment when testing prod
+            // const parseRes = await fetch('/api/parse', { // uncomment when testing prod
             // const parseRes = await fetch('http://192.168.1.50:8080/parse', { // uncomment when testing webserver
-            // const parseRes = await fetch('http://localhost:8080/parse', {
+            const parseRes = await fetch('http://localhost:8080/parse', { // testing locally
                 method: 'POST',
                 body: formData,
             })
@@ -66,31 +66,31 @@ export const UploadEML = () => {
         // LLM API
 
 
-        // setLoadingAnalysis(true)
-        //     try{
-        //         // const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
-        //         // const analyseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
-        //         const analyseRes = await fetch('http://localhost:8080/analyse', {
-        //             method:'POST',
-        //             body: formData,
-        //     })
-        //     const analyseText = await analyseRes.text()
-        //     // console.log("Raw parseRes:", analyseText)
-        //     // console.log("Status:", parseRes.status)
+        setLoadingAnalysis(true)
+            try{
+                // const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
+                // const analyseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
+                const analyseRes = await fetch('http://localhost:8080/analyse', {
+                    method:'POST',
+                    body: formData,
+            })
+            const analyseText = await analyseRes.text()
+            // console.log("Raw parseRes:", analyseText)
+            // console.log("Status:", parseRes.status)
 
-        //     if (!analyseText) {
-        //         console.error("Empty response from server")
-        //         return
-        //     }
+            if (!analyseText) {
+                console.error("Empty response from server")
+                return
+            }
 
-        //     const analyseData = JSON.parse(analyseText)
-        //     setResult(prev => prev ? {...prev, analysis: analyseData.analysis} : null)
-        //     setLoadingAnalysis(false)
-        //     } catch (analyseError) {
-        //         console.error("Error analysing data:", analyseError)
-        //     } finally {
-        //         setLoadingAnalysis(false)
-        //     }
+            const analyseData = JSON.parse(analyseText)
+            setResult(prev => prev ? {...prev, analysis: analyseData.analysis} : null)
+            setLoadingAnalysis(false)
+            } catch (analyseError) {
+                console.error("Error analysing data:", analyseError)
+            } finally {
+                setLoadingAnalysis(false)
+            }
 
     }
 
@@ -107,7 +107,18 @@ export const UploadEML = () => {
                             ref={fileInputRef}
                             type="file"
                             accept=".eml"
-                            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                            onChange={
+                                (e) => {
+                                    const selected = (e.target.files?.[0] ?? null)
+                                    setFile(selected)
+                                    if (selected) {
+                                        const reader = new FileReader()
+                                        reader.onload = (event) => {
+                                            setEmlData(event.target?.result as string)
+                                        }
+                                        reader.readAsText(selected)
+                                    }
+                                }}
                             className="hidden"
                         />
                         <Upload />
@@ -115,12 +126,10 @@ export const UploadEML = () => {
                             {file ? file.name.slice(0, 20) + (file.name.length > 20 ? '...' : '') : 
                             "Upload email here:"}
                         </span>
-                        
                     </button>
                     <button
                         onClick={handleSubmit}
-                        // disabled={loading || loadingAnalysis}
-                        disabled={loading}
+                        disabled={loading || loadingAnalysis}
                         className='mt-5 border-2 border-primary cosmic-button'
                     >
                         Analyse
@@ -134,16 +143,15 @@ export const UploadEML = () => {
                         <SecurityHeaders result={result} />
                         <XHeaders result={result}/>
                         <Body result={result}/>
-                        <ShowBody result={result}/>
                         {result?.analysis && (
                             <div>{analysis.label}: {result.analysis}</div>
                         )}
-                        {/* {loadingAnalysis && 
+                        {loadingAnalysis && 
                             <div className='flex flex-col items-center'>
                                 <span>Loading report</span>
                                 <div className="mt-2 animate-spin"><LoaderCircle size={32} /></div>
                             </div>
-                        } */}
+                        }
                     </div>
                 )}
             </div>

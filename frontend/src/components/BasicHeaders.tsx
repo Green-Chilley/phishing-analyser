@@ -24,7 +24,7 @@ export const BasicHeaders = ({ result }: Props) => {
                                     {field.label}
                                 </div>
                                 <div className='text-foreground col-start-2 col-span-2'>
-                                    {field.value}
+                                    {field.value ?? 'N/A'}
                                 </div>
                             </div>
                             <hr className="border-t border-border w-full" />
