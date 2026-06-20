@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react'
 import { Upload, LoaderCircle  } from 'lucide-react'
+import {cn} from '@/lib/utils'
 import type { EmailResult } from '@/types/email'
+
 import { getAnalysis } from '@/headers/headers'
 import { XHeaders } from '@/components/XHeaders'
 import { BasicHeaders } from '@/components/BasicHeaders'
@@ -19,7 +21,6 @@ export const UploadEML = () => {
     const [loading, setLoading] = useState(false)
     const [loadingAnalysis, setLoadingAnalysis] = useState(false)
     const [error, setError] = useState<string | null>(null)
-    const [emlData, setEmlData] = useState<string>('')
 
     const fileInputRef = useRef<HTMLInputElement>(null)
     
@@ -95,30 +96,27 @@ export const UploadEML = () => {
     }
 
     return (
-        <>
-            <div className="flex flex-col items-center px-4" id="upload">
-                <div className='mt-100 flex flex-col items-center justify-center'>
-                    <button 
-                        className='flex flex-col items-center gap-2 border-dashed border-card-border 
-                                    border px-8 py-20 cursor-pointer rounded-2xl card-hover-bg w-188'
-                        onClick={() => fileInputRef.current?.click()}
-                    >
+    <>
+        <div 
+            className="flex flex-col items-center justify-center px-4 min-h-screen"
+            id="upload"
+        >
+            <div 
+                className={cn(
+                    'flex flex-col items-center justify-center w-full',
+                    result ? "mt-24 mb-24" : "mt-0"
+                )}
+            >
+                <button 
+                    className='flex flex-col items-center gap-2 border-dashed border-card-border 
+                                border px-8 py-20 cursor-pointer rounded-2xl card-hover-bg w-full max-w-3xl'
+                    onClick={() => fileInputRef.current?.click()}
+                >
                         <input
                             ref={fileInputRef}
                             type="file"
                             accept=".eml"
-                            onChange={
-                                (e) => {
-                                    const selected = (e.target.files?.[0] ?? null)
-                                    setFile(selected)
-                                    if (selected) {
-                                        const reader = new FileReader()
-                                        reader.onload = (event) => {
-                                            setEmlData(event.target?.result as string)
-                                        }
-                                        reader.readAsText(selected)
-                                    }
-                                }}
+                            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
                             className="hidden"
                         />
                         <Upload />

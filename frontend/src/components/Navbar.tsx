@@ -1,5 +1,6 @@
 import {cn} from '@/lib/utils'
 import { useState, useEffect } from 'react';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navItems = [
     {name: "Home", href: "/#upload", newTab: false},
@@ -34,7 +35,7 @@ export const Navbar = () => {
                     </span>
                 </a>
 
-                <div className="space-x-8">
+                <div className="flex items-center space-x-8">
                     {navItems.map((item, key) => (
                         <a 
                             key={key} 
@@ -46,7 +47,9 @@ export const Navbar = () => {
                             {item.name}
                         </a>
                     ))}
+                    <ThemeToggle/>
                 </div>
+                
             </div>
         </nav>
     );
