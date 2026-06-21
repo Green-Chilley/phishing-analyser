@@ -44,7 +44,7 @@ async def analyse_email(file: UploadFile = File(...)):
     return_path = parsed.get('header', {}).get('header', {}).get('return-path', '')
     message_id = parsed.get('header', {}).get('header', {}).get('message-id', '')
     
-    client = ollama.Client(host="http://192.168.1.60:11434")
+    client = ollama.Client(host="http://192.168.1.70:11434")
     
     prompt = f"""You are a cautious phishing email analyst. Your job is to analyze emails accurately.
             You must NOT flag an email as phishing unless there is strong concrete evidence.
@@ -85,7 +85,7 @@ async def analyse_email(file: UploadFile = File(...)):
     
     try:
         response = client.chat(
-            model="llama3.2:3b",
+            model="llama3.1:8b",
             messages=[
                 {
                     "role": "system",

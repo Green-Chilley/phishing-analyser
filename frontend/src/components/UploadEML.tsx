@@ -39,9 +39,9 @@ export const UploadEML = () => {
 
         setLoading(true)
             try{
-            // const parseRes = await fetch('/api/parse', { // uncomment when testing prod
+            const parseRes = await fetch('/api/parse', { // uncomment when testing prod
             // const parseRes = await fetch('http://192.168.1.50:8080/parse', { // uncomment when testing webserver
-            const parseRes = await fetch('http://localhost:8080/parse', { // testing locally
+            // const parseRes = await fetch('http://localhost:8080/parse', { // testing locally
                 method: 'POST',
                 body: formData,
             })
@@ -69,9 +69,9 @@ export const UploadEML = () => {
 
         setLoadingAnalysis(true)
             try{
-                // const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
+                const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
                 // const analyseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
-                const analyseRes = await fetch('http://localhost:8080/analyse', {
+                // const analyseRes = await fetch('http://localhost:8080/analyse', {
                     method:'POST',
                     body: formData,
             })
@@ -138,9 +138,9 @@ export const UploadEML = () => {
                 {result && (
                     <div className="w-full max-w-400 flex flex-col mb-10">
                         <BasicHeaders result={result}/>
+                        <Body result={result}/>
                         <SecurityHeaders result={result} />
                         <XHeaders result={result}/>
-                        <Body result={result}/>
                         {result?.analysis && (
                             <div>{analysis.label}: {result.analysis}</div>
                         )}
