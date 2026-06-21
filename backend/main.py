@@ -5,6 +5,9 @@ import json
 import eml_parser
 import ollama
 
+
+# TODO: create manual scripts to assist AI in phishing detection, looking up legitimate domains, urls, sender etc
+
 app = FastAPI()
 
 app.add_middleware(
@@ -46,30 +49,52 @@ async def analyse_email(file: UploadFile = File(...)):
     
     client = ollama.Client(host="http://192.168.1.70:11434")
     
-    prompt = f"""You are a cautious phishing email analyst. Your job is to analyze emails accurately.
-            You must NOT flag an email as phishing unless there is strong concrete evidence.
-            Legitimate emails from real companies often use third party sending services like Mailgun, SendGrid, or Workable.
+    # prompt = f"""You are a cautious phishing email analyst. Your job is to analyze emails accurately.
+            # You must NOT flag an email as phishing unless there is strong concrete evidence.
+            # Legitimate emails from real companies often use third party sending services like Mailgun, SendGrid, or Workable.
 
-            Think step by step:
-            1. Check authentication results first — SPF/DKIM/DMARC pass is a strong legitimacy signal
-            2. Check if the sending domain is consistent across From, Return-Path, and Message-ID
-            3. Check if the content makes sense in context
-            4. Only flag as phishing if you find CONCRETE red flags
+            # Think step by step:
+            # 1. Check authentication results first — SPF/DKIM/DMARC pass is a strong legitimacy signal
+            # 2. Check if the sending domain is consistent across From, Return-Path, and Message-ID
+            # 3. Check if the content makes sense in context
+            # 4. Only flag as phishing if you find CONCRETE red flags
 
-            AUTHENTICATION (most important):
-            - SPF: {spf}
-            - DKIM: {dkim}
-            - DMARC: {dmarc}
+            # AUTHENTICATION (most important):
+            # - SPF: {spf}
+            # - DKIM: {dkim}
+            # - DMARC: {dmarc}
 
-            SENDER:
-            - From: {from_email}
-            - Reply-To: {reply_to or "not set"}
-            - Return-Path: {return_path}
-            - Message-ID: {message_id}
+            # SENDER:
+            # - From: {from_email}
+            # - Reply-To: {reply_to or "not set"}
+            # - Return-Path: {return_path}
+            # - Message-ID: {message_id}
 
-            CONTENT:
-            - Subject: {subject}
-            - Body: {body}
+            # CONTENT:
+            # - Subject: {subject}
+            # - Body: {body}
+            
+            # EML FILE:
+            # {parsed}
+
+            # SCORING GUIDE:
+            # 0-2: All auth passes, domains consistent, legitimate content
+            # 3-4: Minor anomalies but nothing concrete
+            # 5-6: Some suspicious signals worth noting
+            # 7-8: Multiple concrete red flags
+            # 9-10: Clear phishing attempt
+            
+            # If the body is unusually short, that may be a sign of a malicious email.
+            # Check for urgency or pressure tactics.
+            # If there are no clear indicators, state that the email appears to be legitimate.
+            # Note that there may not be enough context to make a definitive judgement, so focus on the most likely indicators based on the provided data.
+            # Structure your response like this:
+            # Score: <YOUR SCORE>, Verdict: <BENIGN | SPAM | MALICIOUS>, <COMMENT ON VERDICT CONCLUSION>
+    #         """
+    
+    prompt = f"""       
+            EML FILE:
+            {parsed}
 
             SCORING GUIDE:
             0-2: All auth passes, domains consistent, legitimate content
@@ -77,11 +102,15 @@ async def analyse_email(file: UploadFile = File(...)):
             5-6: Some suspicious signals worth noting
             7-8: Multiple concrete red flags
             9-10: Clear phishing attempt
-
-            Limit your analysis to 5 sentences and focus on the most relevant indicators.
+            
+            If the body is unusually short, that may be a sign of a malicious email.
+            Check for urgency or pressure tactics.
             If there are no clear indicators, state that the email appears to be legitimate.
             Note that there may not be enough context to make a definitive judgement, so focus on the most likely indicators based on the provided data.
-            """
+            Structure your response like this:
+            Score: <YOUR SCORE>, Verdict: <BENIGN | SPAM | MALICIOUS>, <COMMENT ON VERDICT CONCLUSION>    
+
+    """
     
     try:
         response = client.chat(

@@ -10,8 +10,7 @@ import { Body } from '@/components/Body'
 import { SecurityHeaders } from '@/components/SecurityHeaders'
 
 
-// TODO: fix time out error when waiting for ollama to respond
-// TODO: style the parsed data
+// TODO: fix time out error when waiting for ollama to respond - solved by hosting ollama on PC
 // TODO: create hops table
 
 
@@ -39,9 +38,9 @@ export const UploadEML = () => {
 
         setLoading(true)
             try{
-            const parseRes = await fetch('/api/parse', { // uncomment when testing prod
+            // const parseRes = await fetch('/api/parse', { // uncomment when testing prod
             // const parseRes = await fetch('http://192.168.1.50:8080/parse', { // uncomment when testing webserver
-            // const parseRes = await fetch('http://localhost:8080/parse', { // testing locally
+            const parseRes = await fetch('http://localhost:8080/parse', { // testing locally
                 method: 'POST',
                 body: formData,
             })
@@ -69,9 +68,9 @@ export const UploadEML = () => {
 
         setLoadingAnalysis(true)
             try{
-                const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
+                // const analyseRes = await fetch('/api/analyse', { // uncomment when testing prod
                 // const analyseRes = await fetch('http://192.168.1.50:8080/analyse', { // uncomment when testing webserver
-                // const analyseRes = await fetch('http://localhost:8080/analyse', {
+                const analyseRes = await fetch('http://localhost:8080/analyse', { // testing locally
                     method:'POST',
                     body: formData,
             })
@@ -137,12 +136,12 @@ export const UploadEML = () => {
                 </div>
                 {result && (
                     <div className="w-full max-w-400 flex flex-col mb-10">
-                        <BasicHeaders result={result}/>
-                        <Body result={result}/>
-                        <SecurityHeaders result={result} />
-                        <XHeaders result={result}/>
                         {result?.analysis && (
-                            <div>{analysis.label}: {result.analysis}</div>
+                            <>
+                                <h1 className='text-3xl'>Analysis</h1>
+                                <div>{result.analysis}</div>
+                            </>
+                            
                         )}
                         {loadingAnalysis && 
                             <div className='flex flex-col items-center'>
@@ -150,6 +149,10 @@ export const UploadEML = () => {
                                 <div className="mt-2 animate-spin"><LoaderCircle size={32} /></div>
                             </div>
                         }
+                        <BasicHeaders result={result}/>
+                        <Body result={result}/>
+                        <SecurityHeaders result={result} />
+                        <XHeaders result={result}/>
                     </div>
                 )}
             </div>
