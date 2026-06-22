@@ -69,7 +69,3 @@ export const getTextHtml = (result: EmailResult | null) => {
         { label: "HTML", value: htmlPart?.content },
     ]
 }
-
-export const getAnalysis = (result: EmailResult | null) => (
-    { label: 'Analysis', value: result?.analysis }
-)

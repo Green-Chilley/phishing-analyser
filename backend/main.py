@@ -93,24 +93,32 @@ async def analyse_email(file: UploadFile = File(...)):
     #         """
     
     prompt = f"""       
-            EML FILE:
-            {parsed}
-
-            SCORING GUIDE:
-            0-2: All auth passes, domains consistent, legitimate content
-            3-4: Minor anomalies but nothing concrete
-            5-6: Some suspicious signals worth noting
-            7-8: Multiple concrete red flags
-            9-10: Clear phishing attempt
-            
-            If the body is unusually short, that may be a sign of a malicious email.
-            Check for urgency or pressure tactics.
-            If there are no clear indicators, state that the email appears to be legitimate.
-            Note that there may not be enough context to make a definitive judgement, so focus on the most likely indicators based on the provided data.
-            Structure your response like this:
-            Score: <YOUR SCORE>, Verdict: <BENIGN | SPAM | MALICIOUS>, <COMMENT ON VERDICT CONCLUSION>    
+        Analyse this email:
+        {parsed}
 
     """
+    
+    system = f"""
+                    
+                    You are a cybersecurity expert specialising in phishing email detection.
+                    Analyse the provided email and identify indicators of phishing or malicious intent.
+
+                    Evaluate the following:
+                    - Sender legitimacy (domain mismatch, spoofing, suspicious From/Reply-To)
+                    - Urgency or pressure tactics
+                    - Suspicious links or attachments
+                    - Grammar and spelling issues
+                    - Requests for sensitive information
+                    - Impersonation of trusted brands or people
+
+                    Respond in the following JSON format only, no extra text:
+                    {
+                    "verdict": "phishing" | "suspicious" | "legitimate",
+                    "confidence": "high" | "medium" | "low",
+                    "reasons": ["reason 1", "reason 2"],
+                    "risk_score": <integer 1-10>
+                    }
+                        """
     
     try:
         response = client.chat(
@@ -118,7 +126,7 @@ async def analyse_email(file: UploadFile = File(...)):
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a senior email security analyst with 10 years experience. You are precise and evidence based. You never flag an email as phishing without concrete proof. You know that SPF/DKIM/DMARC passing is a strong legitimacy signal."
+                    "content": system
                 },
                 {
                     "role": "user",

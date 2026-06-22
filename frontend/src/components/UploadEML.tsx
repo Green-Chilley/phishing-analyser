@@ -3,7 +3,6 @@ import { Upload, LoaderCircle  } from 'lucide-react'
 import {cn} from '@/lib/utils'
 import type { EmailResult } from '@/types/email'
 
-import { getAnalysis } from '@/headers/headers'
 import { XHeaders } from '@/components/XHeaders'
 import { BasicHeaders } from '@/components/BasicHeaders'
 import { Body } from '@/components/Body'
@@ -22,8 +21,6 @@ export const UploadEML = () => {
     const [error, setError] = useState<string | null>(null)
 
     const fileInputRef = useRef<HTMLInputElement>(null)
-    
-    const analysis = getAnalysis(result)
 
     const handleSubmit = async () => {
         setResult(null)
