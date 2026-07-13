@@ -42,5 +42,11 @@ export interface EmailResult {
         mime_type: string
         raw: string
     }[]
-    analysis: string
+}
+
+export interface AnalysisResult {
+    verdict: "phishing" | "suspicious" | "legitimate"
+    confidence: "high" | "medium" | "low"
+    reasons: string[]
+    risk_score: number
 }
