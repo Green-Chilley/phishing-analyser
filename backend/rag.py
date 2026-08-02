@@ -1,26 +1,10 @@
 import chromadb
 from sentence_transformers import SentenceTransformer
+from phishing_examples import examples
 
 client = chromadb.PersistentClient(path="./phishing.db")
 collection = client.get_or_create_collection("phishing_emails")
 model = SentenceTransformer("all-MiniLM-L6-v2")
-
-examples = [
-    {
-        "id": "1",
-        "text": "From: support@paypa1.com Subject: Urgent your account will be suspended click here to verify",
-        "verdict": "phishing",
-        "type": "account_suspension",
-        "brand": "paypal"
-    },
-    {
-        "id": "2", 
-        "text": "From: noreply@github.com Subject: Your weekly digest here are your repository updates",
-        "verdict": "legitimate",
-        "type": "newsletter",
-        "brand": "github"
-    },
-]
 
 if collection.count() == 0:
     for ex in examples:

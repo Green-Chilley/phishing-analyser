@@ -84,7 +84,7 @@ async def analyse_email(email: EmailSchema):
 
                     Respond in the following JSON format only, no extra text:
                     {
-                    "verdict": "phishing" | "suspicious" | "legitimate",
+                    "verdict": "phishing" | "suspicious" | "legitimate" | "graymail",
                     "confidence": "high" | "medium" | "low",
                     "reasons": ["reason 1", "reason 2"],
                     "risk_score": <integer 1-10>

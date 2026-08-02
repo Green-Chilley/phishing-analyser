@@ -45,7 +45,7 @@ export interface EmailResult {
 }
 
 export interface AnalysisResult {
-    verdict: "phishing" | "suspicious" | "legitimate"
+    verdict: "phishing" | "suspicious" | "legitimate" | "graymail"
     confidence: "high" | "medium" | "low"
     reasons: string[]
     risk_score: number
