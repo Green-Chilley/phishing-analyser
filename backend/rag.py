@@ -6,6 +6,11 @@ client = chromadb.PersistentClient(path="./phishing.db")
 collection = client.get_or_create_collection("phishing_emails")
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
+
+# TODO: fill phishing examples database
+# TODO: restructure metadata and data for accurate analysis
+
+
 if collection.count() == 0:
     for ex in examples:
         embedding = model.encode(ex["text"]).tolist()

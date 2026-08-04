@@ -9,6 +9,8 @@ import re
 from rag import build_prompt
 from pydantic import BaseModel
 
+# for demo, run ollama serve and uvicorn main:app --reload --host 0.0.0.0 --port 8080 on desktop
+
 class EmailSchema(BaseModel):
     from_address: str
     reply_to: str | None = None
@@ -104,6 +106,10 @@ async def analyse_email(email: EmailSchema):
                     "content": prompt
                 }
             ],
+            options={
+                "temperature": 0.1,
+                "top_p": 0.9
+            }
         )
         analysis = response.message.content
         return JSONResponse(content=json.loads(analysis))
