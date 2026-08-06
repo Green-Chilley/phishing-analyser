@@ -83,13 +83,12 @@ async def analyse_email(email: EmailSchema):
                     - Grammar and spelling issues
                     - Requests for sensitive information
                     - Impersonation of trusted brands or people
+                    - Unusually short bodies, which is uncommon in legitimate messages
 
                     Respond in the following JSON format only, no extra text:
                     {
-                    "verdict": "phishing" | "suspicious" | "legitimate" | "graymail",
-                    "confidence": "high" | "medium" | "low",
-                    "reasons": ["reason 1", "reason 2"],
-                    "risk_score": <integer 1-10>
+                    "verdict": "malicious" | "suspicious" | "benign" | "graymail",
+                    "reasons": ["reason 1", "reason 2", "reason 3"],
                     }
                         """
     

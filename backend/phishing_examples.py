@@ -2,7 +2,7 @@ examples = [
     {
         "id": "1",
         "text": "From: support@paypa1.com Subject: Urgent your account will be suspended click here to verify",
-        "verdict": "phishing",
+        "verdict": "malicious",
         "type": "account_suspension",
         "brand": "paypal"
     },

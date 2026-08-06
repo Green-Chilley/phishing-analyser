@@ -7,6 +7,7 @@ import { XHeaders } from '@/components/XHeaders'
 import { BasicHeaders } from '@/components/BasicHeaders'
 import { Body } from '@/components/Body'
 import { SecurityHeaders } from '@/components/SecurityHeaders'
+import { Analysis } from '@/components/Analysis'
 
 
 // TODO: fix time out error when waiting for ollama to respond - solved by hosting ollama on PC
@@ -90,7 +91,7 @@ export const UploadEML = () => {
                 <div
                     className={cn(
                         'flex flex-col items-center justify-center w-full',
-                        result ? "mt-24 mb-24" : "mt-0"
+                        result ? "mt-24 mb-12" : "mt-0"
                     )}
                 >
                     <button
@@ -131,35 +132,19 @@ export const UploadEML = () => {
                                     <div className="mt-2 animate-spin"><LoaderCircle size={32} /></div>
                                 </div>
                             ) : analysis && (
-                                <div>
-                                    <div>
-                                        <span className="font-semibold">Verdict: </span>
-                                        <span className={
-                                            analysis.verdict === "phishing" ? "text-red-500" :
-                                            analysis.verdict === "suspicious" ? "text-yellow-500" :
-                                            analysis.verdict === "graymail" ? "text-gray-400":
-                                            "text-green-500"
-                                        }>
-                                            {analysis.verdict ?? "unknown"}
-                                        </span>
+                                <>
+                                    <h1 className='text-2xl font-bold mb-2'>Attack Analysis</h1>
+                                    <div className={cn('border-t-8 pt-2 rounded-l-md', 
+                                    analysis.verdict === 'malicious' ? 'border-red-600':
+                                    analysis.verdict === 'suspicious' ? 'border-yellow-500':
+                                    analysis.verdict === 'graymail' ? 'border-gray-400':
+                                    'border-green-500'
+                                    )}
+                                    >
+                                        <Analysis analysis={analysis} />
                                     </div>
-                                    <div>
-                                        <span className="font-semibold">Confidence: </span>
-                                        {analysis.confidence ?? "unknown"}
-                                    </div>
-                                    <div>
-                                        <span className="font-semibold">Risk Score: </span>
-                                        {analysis.risk_score ?? "N/A"}/10
-                                    </div>
-                                    <div>
-                                        <span className="font-semibold">Reasons:</span>
-                                        <ul className="list-disc list-inside mt-1">
-                                            {analysis.reasons?.map((reason: string, i: number) => (
-                                                <li key={i}>{reason}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
+                                </>
+                                
                             )}
                         </div>
                         <BasicHeaders result={result} />
