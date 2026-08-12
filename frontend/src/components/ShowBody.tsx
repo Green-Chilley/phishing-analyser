@@ -61,7 +61,7 @@ export const ShowBody = ({ result }: Props) => {
                         </div>
                     )}
                 {view === 'text/plain' && (
-                    <pre className='border-0 gradient-border h-96 text-sm w-full pl-6 
+                    <pre className='border-0 gradient-border h-96 text-sm w-full p-6 
                                     overflow-y-auto overflow-x-auto whitespace-pre-wrap wrap-break-words'>
                         {plain.value}
                     </pre>

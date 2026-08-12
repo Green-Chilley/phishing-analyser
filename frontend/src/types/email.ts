@@ -45,6 +45,6 @@ export interface EmailResult {
 }
 
 export interface AnalysisResult {
-    verdict: "malicious" | "suspicious" | "benign" | "graymail"
+    verdict: "Malicious" | "Suspicious" | "Benign" | "Graymail"
     reasons: string[]
 }

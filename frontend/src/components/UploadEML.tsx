@@ -12,6 +12,7 @@ import { Analysis } from '@/components/Analysis'
 
 // TODO: fix time out error when waiting for ollama to respond - solved by hosting ollama on PC
 // TODO: create hops table
+// TODO: add dmarc, dkim, spf checking for signature
 
 
 export const UploadEML = () => {
@@ -132,19 +133,7 @@ export const UploadEML = () => {
                                     <div className="mt-2 animate-spin"><LoaderCircle size={32} /></div>
                                 </div>
                             ) : analysis && (
-                                <>
-                                    <h1 className='text-2xl font-bold mb-2'>Attack Analysis</h1>
-                                    <div className={cn('border-t-8 pt-2 rounded-l-md', 
-                                    analysis.verdict === 'malicious' ? 'border-red-600':
-                                    analysis.verdict === 'suspicious' ? 'border-yellow-500':
-                                    analysis.verdict === 'graymail' ? 'border-gray-400':
-                                    'border-green-500'
-                                    )}
-                                    >
-                                        <Analysis analysis={analysis} />
-                                    </div>
-                                </>
-                                
+                                <Analysis analysis={analysis} />
                             )}
                         </div>
                         <BasicHeaders result={result} />

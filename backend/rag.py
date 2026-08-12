@@ -59,7 +59,7 @@ def build_prompt(email: dict) -> str:
     
     if similar:
         context = "\n\n".join([
-            f"Similar email ({ex['verdict'].upper()}):\n{ex['text']}"
+            f"Similar email ({ex['verdict']}):\n{ex['text']}"
             for ex in similar
         ])
         context_block = f"Here are similar emails from our database for reference:\n\n{context}\n\n---\n\n"

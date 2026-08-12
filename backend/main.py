@@ -16,12 +16,15 @@ class EmailSchema(BaseModel):
     reply_to: str | None = None
     subject: str
     body: str
+    url: str
+    domain: str
+    spf: str
+    dmarc: str
+    dkim: str
 
 # TODO: OPTIONAL: create manual scripts to assist AI in phishing detection, looking up legitimate domains, urls, sender etc
-# TODO: Implement RAG
 
 app = FastAPI()
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -32,7 +35,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     print("Validation error:", exc.errors())
@@ -40,7 +42,8 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         status_code=422,
         content={"detail": exc.errors()}
     )
-    
+
+# in occurrence of long html bodies, remove whitespaces, limit to 2000 letters
 def strip_html(html: str) -> str:
     html = re.sub(r'<(style|script)[^>]*>.*?</\1>', '', html, flags=re.DOTALL)
     html = re.sub(r'<[^>]+>', ' ', html)
@@ -56,7 +59,6 @@ def parse_email(eml_bytes: bytes):
 async def parse_email_endpoint(file: UploadFile = File(...)):
     raw_bytes = await file.read()
     parsed = parse_email(raw_bytes)
-    print(str(parsed))
     return JSONResponse(content=json.loads(json.dumps(parsed, default=str)))
 
 @app.post("/analyse")
@@ -87,7 +89,7 @@ async def analyse_email(email: EmailSchema):
 
                     Respond in the following JSON format only, no extra text:
                     {
-                    "verdict": "malicious" | "suspicious" | "benign" | "graymail",
+                    "verdict": "Malicious" | "Suspicious" | "Benign" | "Graymail",
                     "reasons": ["reason 1", "reason 2", "reason 3"],
                     }
                         """

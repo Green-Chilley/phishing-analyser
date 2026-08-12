@@ -52,12 +52,13 @@ export const getXHeaders = (result: EmailResult | null) => [
 
 export const getBody = (result: EmailResult | null) => {
     const hashPart = result?.body?.find(p => 'hash' in p)
-    const contentPart = result?.body?.find(p => 'domain' in p)
+    const allDomain = result?.body?.flatMap(p => p.domain ?? [])
+    const allUri = result?.body?.flatMap(p => p.uri ?? [])
 
     return [
         { label: "Hash", value: hashPart?.["hash"] },
-        { label: "Domain", value: contentPart?.["domain"]?.join('\n') },
-        { label: "URI", value: contentPart?.["uri"]?.join('\n\n') },
+        { label: "Domain", value: allDomain?.join('\n') },
+        { label: "URI", value: allUri?.join('\n\n') },
     ]
 }
 

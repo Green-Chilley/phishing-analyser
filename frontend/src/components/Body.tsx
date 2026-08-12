@@ -7,6 +7,8 @@ interface Props {
     result: EmailResult | null
 }
 
+// TODO: implement opening virustotal in a new tab upon clicking on url or domain
+
 export const Body = ({ result }: Props) => {
     
     const body = getBody(result)
