@@ -6,6 +6,7 @@ examples = [
                 Subject: Urgent your account will be suspended click here to verify
                 Body: Dear customer, your PayPal account has been limited. Click here immediately to restore access or your account will be permanently suspended within 24 hours.
                 URLs: http://paypal-secure-login.ru/verify
+                Reply-to: support@paypa1.com 
                 Domains: paypa1.com
                 SPF: none
                 DMARC: fail
@@ -23,6 +24,7 @@ examples = [
                 Subject: CLIENTE PRIME - BRADESCO LIVELO: Seu cartão tem 92.990 pontos LIVELO expirando hoje!
                 Body: Você possui Pontos Livelo com seu cartão Banco do Bradesco disponíveis para resgate que expiram HOJE, evite a perda destes pontos realizando agora mesmo o resgate da sua Pontuação Visa Infinite. Você Clientes Banco do Bradesco acumulam pontos livelo todas as vezes que utilizam seus cartões na função débito ou crédito, é rápido e fácil de acumular.
                 URLs: https://blog1seguimentmydomaine2bra.me/
+                Reply-to: root@ubuntu-s-1vcpu-1gb-35gb-intel-sfo3-06
                 Domains: [
                     blog1seguimentmydomaine2bra.me,
                     fonts.googleapis.com,
@@ -64,6 +66,7 @@ examples = [
                     https://d314e77m1bz5zy.cloudfront.net/bee/Images/bmsx/nyucxrz2/t0z/0rw/mxf/redditicon.png,
                     https://d314e77m1bz5zy.cloudfront.net/bee/Images/bmsx/nyucxrz2/szf/8o2/g8g/gradientbg1.jpg,
                 ]
+                Reply-to: 0110019eabac3ad3-c820be26-8601-4990-a024-11e0860d84db-000000@env.em.sweatco.in
                 Domains: [
                     td.pad,
                     click.sweatco.in,
@@ -88,6 +91,7 @@ examples = [
                 Subject: Sie wurden ausgewhält!
                 Body: empty
                 URLs: http://easilett.com/cl/567_md/2010/1/64/23/2459859
+                Reply-to: return@crossword.live
                 Domains: easilett.com
                 SPF: pass
                 DMARC: fail
@@ -97,5 +101,28 @@ examples = [
         "type": "redirect_attack",
         "brand": "unknown",
         "indicators": ["suspicious_url", "dkim_signature_fail", "empty_body"]
+    },
+    {
+        "id": "5",
+        "text": """
+                From: leo.nguyen@hotmail.com.au
+                Subject: Great meeting you
+                Body: 
+                    Hi,
+                    I hope you are doing well.
+                    It was great meeting you at the event yesterday. Thank you for taking the time to chat and show us a demo of your product. I really enjoyed learning about your work and hearing your insights into the industry.
+                    I'd love to stay in touch, and if you're open to it, I'd be happy to connect with you on Linkedin. I was also wondering if you'd happen to know of any teams or companies that are currently hiring graduates or interns with my background. If anyone comes to mind, I'd really appreciate any introductions or suggestions. Of course, I completely understand if nothing comes to mind at the moment.
+                    Thank you again for your time, and I hope we can keep in touch.
+                URLs: none
+                Reply-to: none
+                Domains: www.linkedin.com
+                SPF: pass
+                DMARC: pass
+                DKIM: pass
+        """,
+        "verdict": "benign",
+        "type": "none",
+        "brand": "none",
+        "indicators": ["no_suspicious_links", "dkim_signatue_pass", "no_malicious_intent"]
     }
 ]

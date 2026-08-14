@@ -6,6 +6,7 @@ export const getBasicHeaders = (result: EmailResult | null) => [
     { label: 'From', value: result?.header?.from },
     { label: 'To', value: result?.header?.to?.join(', ') },
     { label: 'Date', value: result?.header?.date },
+    { label: "Return Path", value: result?.header?.header?.["return-path"]}
 ]
 
 export const getSecurityHeaders = (result: EmailResult | null) => [

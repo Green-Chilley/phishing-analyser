@@ -37,7 +37,12 @@ export const UploadEML = () => {
                     from_address: parseData.header?.from ?? "",
                     reply_to: parseData.header?.header?.['reply-to']?.[0] ?? null,
                     subject: parseData.header?.subject ?? "",
-                    body: parseData.body?.[0]?.content?.slice(0, 3000) ?? ""
+                    body: parseData.body?.[0]?.content?.slice(0, 3000) ?? "",
+                    urls: parseData.body?.flatMap((p: any) => p.uri ?? []) ?? [],
+                    domains: parseData.body?.flatMap((p: any) => p.domain ?? []) ?? [],
+                    spf: parseData.header?.header?.["received-spf"] ?? null,
+                    dmarc: parseData.header?.header?.["authentication-results"] ?? null,
+                    dkim: parseData.header?.header?.["dkim-signature"] ?? null,
                 })
             })
             const analyseData = await analyseRes.json()

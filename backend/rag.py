@@ -11,7 +11,7 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 # TODO: restructure metadata and data for accurate analysis
 
 
-if collection.count() == 0:
+if collection.count == 0:
     for ex in examples:
         embedding = model.encode(ex["text"]).tolist()
         collection.add(
@@ -21,7 +21,8 @@ if collection.count() == 0:
             metadatas=[{
                 "verdict": ex["verdict"],
                 "type": ex["type"],
-                "brand": ex["brand"]
+                "brand": ex["brand"],
+                "indicators": ", ".join(ex["indicators"])
             }]
         )
     print(f"Seeded {len(examples)} examples into ChromaDB")
@@ -43,16 +44,28 @@ def get_similar_examples(email_text: str, n: int = 3) -> list[dict]:
             "text": results["documents"][0][i],
             "verdict": results["metadatas"][0][i]["verdict"],
             "type": results["metadatas"][0][i]["type"],
+            "brand": results["metadatas"][0][i]["brand"],
+            "indicators": results["metadatas"][0][i].get("indicators", ""),  # safe fallback
             "distance": results["distances"][0][i] 
         })
         
     return similar
 
 def build_prompt(email: dict) -> str:
+    
+    urls = "\n".join(f"- {u}" for u in email.get('urls', [])[:5]) or "None"
+    domains = ", ".join(email.get('domains', [])[:10]) or "None"
+    
     email_text = f"""
     From: {email['from_address']}
+    Reply-To: {email.get('reply-to', 'N/A')}
     Subject: {email['subject']}
     Body: {email['body']}
+    URL: {urls}
+    Domain: {domains}
+    SPF: {email.get('spf', 'unknown')}
+    DMARC: {email.get('dmarc', 'unknown')}
+    DKIM: {email.get('dkim', 'unknown')}
     """.strip()
     
     similar = get_similar_examples(email_text)

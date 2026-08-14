@@ -16,11 +16,11 @@ class EmailSchema(BaseModel):
     reply_to: str | None = None
     subject: str
     body: str
-    url: str
-    domain: str
-    spf: str
-    dmarc: str
-    dkim: str
+    urls: list[str] = []
+    domains: list[str] = []
+    spf: list[str] | None = None
+    dmarc: list[str] | None = None
+    dkim: list[str] | None = None
 
 # TODO: OPTIONAL: create manual scripts to assist AI in phishing detection, looking up legitimate domains, urls, sender etc
 
@@ -69,7 +69,12 @@ async def analyse_email(email: EmailSchema):
         "from_address": email.from_address,
         "reply_to": email.reply_to,
         "subject": email.subject,
-        "body": clean_body
+        "body": clean_body,
+        "url": email.urls,
+        "domain": email.domains,
+        "spf": email.spf,
+        "dmarc": email.dmarc,
+        "dkim": email.dkim,
     })  
 
     client = ollama.Client(host="http://192.168.1.70:11434")
@@ -87,7 +92,7 @@ async def analyse_email(email: EmailSchema):
                     - Impersonation of trusted brands or people
                     - Unusually short bodies, which is uncommon in legitimate messages
 
-                    Respond in the following JSON format only, no extra text:
+                    Respond in the following JSON format only, no extra text and only provide three concise reasons:
                     {
                     "verdict": "Malicious" | "Suspicious" | "Benign" | "Graymail",
                     "reasons": ["reason 1", "reason 2", "reason 3"],
