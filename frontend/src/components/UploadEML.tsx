@@ -29,8 +29,8 @@ export const UploadEML = () => {
         setLoadingAnalysis(true)
 
         try {
-            const analyseRes = await fetch('http://localhost:8080/analyse', {
-            // const analyseRes = await fetch('/api/analyse', {
+            // const analyseRes = await fetch('http://localhost:8080/analyse', {
+            const analyseRes = await fetch('/api/analyse', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -69,9 +69,9 @@ export const UploadEML = () => {
 
         let parseData: any = null
         try {
-        // const parseRes = await fetch('/api/parse', { // uncomment when testing prod
+        const parseRes = await fetch('/api/parse', { // uncomment when testing prod
         // const parseRes = await fetch('http://192.168.1.50:8080/parse', { // uncomment when testing webserver
-            const parseRes = await fetch('http://localhost:8080/parse', { // testing locally
+            // const parseRes = await fetch('http://localhost:8080/parse', { // testing locally
                     method: 'POST',
                     body: formData,
             })
