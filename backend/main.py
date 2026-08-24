@@ -9,7 +9,7 @@ import re
 from rag import build_prompt
 from pydantic import BaseModel
 
-# for demo, run ollama serve and uvicorn main:app --reload --host 0.0.0.0 --port 8080 on desktop
+# for demo, run ollama serve and uvicorn main:app --reload --host 0.0.0.0 --port 8000 on desktop
 
 class EmailSchema(BaseModel):
     from_address: str
@@ -77,7 +77,7 @@ async def analyse_email(email: EmailSchema):
         "dkim": email.dkim,
     })  
 
-    client = ollama.Client(host="http://192.168.1.70:11434")
+    client = ollama.Client(host="http://localhost:11434")
     system = """
                     
                     You are a cybersecurity expert specialising in phishing email detection.
